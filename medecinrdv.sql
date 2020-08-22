@@ -3,19 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 22 août 2020 à 14:02
--- Version du serveur :  8.0.18
+-- Généré le :  sam. 22 août 2020 à 15:11
+-- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
-
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-DROP DATABASE IF EXISTS `medecinrdv`;
-CREATE DATABASE `medecinrdv`;
-USE `medecinrdv`;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,6 +21,8 @@ USE `medecinrdv`;
 --
 -- Base de données :  `medecinrdv`
 --
+CREATE DATABASE IF NOT EXISTS `medecinrdv` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `medecinrdv`;
 
 -- --------------------------------------------------------
 
@@ -34,13 +32,13 @@ USE `medecinrdv`;
 
 DROP TABLE IF EXISTS `creneau`;
 CREATE TABLE IF NOT EXISTS `creneau` (
-  `id_creneau` int(11) NOT NULL,
+  `id_creneau` int(11) NOT NULL AUTO_INCREMENT,
   `id_medecin` int(11) NOT NULL,
   `date_debut` datetime NOT NULL,
   `date_fin` datetime NOT NULL,
   PRIMARY KEY (`id_creneau`),
   KEY `creneau_medecin` (`id_medecin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -74,6 +72,13 @@ CREATE TABLE IF NOT EXISTS `patient` (
   KEY `id_patient` (`id_patient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `patient`
+--
+
+INSERT INTO `patient` (`id_patient`, `num_secu`) VALUES
+(2, 12345);
+
 -- --------------------------------------------------------
 
 --
@@ -105,7 +110,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `telephone` varchar(255) NOT NULL,
   PRIMARY KEY (`id_user`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id_user`, `nom`, `prenom`, `mail`, `password`, `telephone`) VALUES
+(1, 'Connard', 'FDP', 'saleFPD@fdpland.com', 'unpassworddefpd', '+33541235829'),
+(2, 'Connard2', 'FDP2', 'saleFPD2@fdpland.com', 'unpassworddefpd2', '+33541235822');
 
 --
 -- Contraintes pour les tables déchargées
@@ -115,26 +128,26 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Contraintes pour la table `creneau`
 --
 ALTER TABLE `creneau`
-  ADD CONSTRAINT `creneau_medecin` FOREIGN KEY (`id_medecin`) REFERENCES `medecin` (`id_medecin`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `creneau_medecin` FOREIGN KEY (`id_medecin`) REFERENCES `medecin` (`id_medecin`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `medecin`
 --
 ALTER TABLE `medecin`
-  ADD CONSTRAINT `user_medecin` FOREIGN KEY (`id_medecin`) REFERENCES `user` (`id_user`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `user_medecin` FOREIGN KEY (`id_medecin`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `patient`
 --
 ALTER TABLE `patient`
-  ADD CONSTRAINT `user_patient` FOREIGN KEY (`id_patient`) REFERENCES `user` (`id_user`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `user_patient` FOREIGN KEY (`id_patient`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `rdv`
 --
 ALTER TABLE `rdv`
-  ADD CONSTRAINT `rdv_crenau` FOREIGN KEY (`id_creneau`) REFERENCES `creneau` (`id_creneau`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `rdv_patient` FOREIGN KEY (`id_patient`) REFERENCES `patient` (`id_patient`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `rdv_creneau` FOREIGN KEY (`id_creneau`) REFERENCES `creneau` (`id_creneau`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rdv_patient` FOREIGN KEY (`id_patient`) REFERENCES `patient` (`id_patient`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
