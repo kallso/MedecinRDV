@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+}
+
+.left-menu {
+  display: flex;
+  align-items: center;
+  gap: 15%;
+}
+
+.left-menu a {
+  font-size: 36px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.54px;
+  color: #000000;
+}
+
+.left-menu img {
+  width: 72px;
+}
+
+.right-menu ul {
+  flex: 1;
+  display: flex;
+  gap: 15px;
+}
