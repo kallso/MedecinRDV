@@ -3,6 +3,10 @@
   padding: 0 1vw;
   justify-content: space-between;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .left-menu {
@@ -19,6 +23,12 @@
   line-height: normal;
   letter-spacing: -0.54px;
   color: var(--black);
+  display: flex;
+  align-items: center;
+}
+
+.left-menu img {
+  margin-left: 15px;
 }
 
 .left-menu img {

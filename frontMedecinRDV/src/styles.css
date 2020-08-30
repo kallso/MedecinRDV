@@ -225,13 +225,14 @@
   --azure: #18a0fb;
   --black: #000;
   --white: #fff;
+  --header-height: 91px;
 }
 
 /* TYPOGRAPHY */
 body {
-  margin: 0;
   padding: 0;
   font-family: Comfortaa, sans-serif;
+  margin: var(--header-height) 0 0;
 }
 
 ul, li {
