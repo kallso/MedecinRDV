@@ -480,6 +480,7 @@ a {
   border-radius: 6px;
   border: solid 1px var(--azure);
   padding: 15px;
+  background:var(--white);
 }
 
 .blue {
