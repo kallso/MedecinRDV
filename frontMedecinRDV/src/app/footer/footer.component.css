@@ -1,23 +1,32 @@
-:host{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#e5e5e5;
-    padding:15px;
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e5e5e5;
+  padding: 6px 2vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-img{
-    max-width: 150px;
-    max-height:80px;
-    object-fit:scale-down;
+img {
+  max-width: 150px;
+  max-height: 80px;
+  object-fit: scale-down;
 }
 
-div{
-    display:flex;
-    align-items:center;
-    gap:15px;
+div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.colonne{
-    flex-direction:column;
+.colonne {
+  flex-direction: column;
+  gap: 3px;
+}
+
+p {
+  font-weight: bold;
 }

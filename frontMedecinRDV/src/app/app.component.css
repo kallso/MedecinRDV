@@ -1,0 +1,9 @@
+#page-container {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+}
+
+#content-wrap {
+  padding-bottom: var(--footer-height);    /* Footer height */
+  margin: var(--header-height) 0 0;
+}

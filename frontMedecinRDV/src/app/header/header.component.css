@@ -7,13 +7,13 @@
   top: 0;
   left: 0;
   right: 0;
+  background-color: var(--white);
 }
 
 .left-menu {
   display: flex;
   align-items: center;
   gap: 15%;
-  font-family: Comfortaa, sans-serif;
 }
 
 .left-menu a {
@@ -26,6 +26,7 @@
   color: var(--black);
   display: flex;
   align-items: center;
+  font-family: Comfortaa, sans-serif;
 }
 
 .left-menu img {
