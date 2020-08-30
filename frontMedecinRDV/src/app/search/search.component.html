@@ -1,1 +1,23 @@
-<p>search works!</p>
+<h1 class="cta">Je trouve mon spécialiste dans ma ville !</h1>
+
+<form [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    name="MES"
+    id="MES"
+    formControlName="MES"
+    placeholder="Médecin, établissement, spécialité…"
+    [required]="true"
+  />
+
+  <input
+    type="text"
+    name="ville"
+    id="ville"
+    formControlName="ville"
+    placeholder="Ville"
+    [required]="true"
+  />
+
+  <button type="submit" class="button blue">Rechercher</button>
+</form>
