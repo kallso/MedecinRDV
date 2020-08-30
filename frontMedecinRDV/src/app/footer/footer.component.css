@@ -1,0 +1,21 @@
+:host{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#e5e5e5;
+    padding:15px;
+}
+
+img{
+    max-width: 100px;
+}
+
+div{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.colonne{
+    flex-direction:column;
+}
