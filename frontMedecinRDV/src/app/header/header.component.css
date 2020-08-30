@@ -1,7 +1,8 @@
 :host {
   display: flex;
-  padding: 15px;
+  padding: 0 1vw;
   justify-content: space-between;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .left-menu {
@@ -17,15 +18,27 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.54px;
-  color: #000000;
+  color: var(--black);
 }
 
 .left-menu img {
   width: 72px;
 }
 
+.right-menu {
+  display: flex;
+  align-items: center;
+}
+
 .right-menu ul {
   flex: 1;
   display: flex;
-  gap: 15px;
+  gap: 2.4vw;
 }
+
+.right-menu ul li {
+  display: flex;
+  align-items: center;
+}
+
+

@@ -222,7 +222,9 @@
 
 /* VARS */
 :root {
-  --blue: #18a0fb;
+  --azure: #18a0fb;
+  --black: #000;
+  --white: #fff;
 }
 
 /* TYPOGRAPHY */
@@ -238,5 +240,30 @@ ul, li {
 
 a {
   text-decoration: none;
-  color: var(--blue);
+  color: var(--azure);
+  font-size: 24px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.36px;
+}
+
+.white {
+  border-radius: 6px;
+  border: solid 1px var(--azure);
+  padding: 15px;
+}
+
+.blue {
+  border-radius: 6px;
+  background-color: var(--azure);
+  padding: 15px;
+  color: var(--white);
+}
+
+.white, .blue {
+  display: flex;
+  min-width: 192px;
+  justify-content: center;
 }
