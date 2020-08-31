@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
 public class UserRestController {
 
+    public final UserRepository repo;
+
     @Autowired
-    private UserRepository repo;
+    public UserRestController(UserRepository repo) {
+        this.repo = repo;
+    }
 
     //get all
     @GetMapping("/users")
