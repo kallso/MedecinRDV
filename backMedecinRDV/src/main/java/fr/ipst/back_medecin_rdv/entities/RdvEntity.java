@@ -1,16 +1,21 @@
 package fr.ipst.back_medecin_rdv.entities;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 @Table(name = "rdv", schema = "medecinrdv", catalog = "")
 public class RdvEntity {
+    private int id_rdv;
     private Timestamp heureDebut;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_rdv", nullable = false)
+    public int getId_rdv() {
+        return id_rdv;
+    }
 
     @Basic
     @Column(name = "heure_debut", nullable = false)
@@ -21,6 +26,17 @@ public class RdvEntity {
     public void setHeureDebut(Timestamp heureDebut) {
         this.heureDebut = heureDebut;
     }
+
+    public void setId_rdv(int id_rdv) {
+        this.id_rdv = id_rdv;
+    }
+
+    /**
+    @ManyToMany
+    @JoinTable (name = "Patient_Rdv",
+                joinColumns = @JoinColumn(name="id_rdv"),
+                inverseJoinColumns = @JoinColumn(name="id_patient"))
+    private Set<>**/
 
     @Override
     public boolean equals(Object o) {
