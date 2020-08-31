@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 22 août 2020 à 15:11
+-- Généré le :  lun. 31 août 2020 à 20:06
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -90,6 +90,8 @@ CREATE TABLE IF NOT EXISTS `rdv` (
   `id_patient` int(11) NOT NULL,
   `id_creneau` int(11) NOT NULL,
   `heure_debut` datetime NOT NULL,
+  `id_rdv` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id_rdv`),
   KEY `rdv_patient` (`id_patient`),
   KEY `rdv_crenau` (`id_creneau`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -110,15 +112,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `telephone` varchar(255) NOT NULL,
   PRIMARY KEY (`id_user`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id_user`, `nom`, `prenom`, `mail`, `password`, `telephone`) VALUES
-(1, 'Connard', 'FDP', 'saleFPD@fdpland.com', 'unpassworddefpd', '+33541235829'),
-(2, 'Connard2', 'FDP2', 'saleFPD2@fdpland.com', 'unpassworddefpd2', '+33541235822');
+(1, 'Raiff', 'Bertrand', 'bertrand@VM.com', 'LAVMMARCHEPA', '+33666666666'),
+(2, 'Garcia', 'Simon', 'fantome@gmail.com', 'jesuispalaaaaa', '+33541235822'),
+(3, 'Balatia', 'Yaya', 'yayaToure@but.com', 'CLEBUUUUUUT', '+33544658498');
 
 --
 -- Contraintes pour les tables déchargées
