@@ -1,11 +1,8 @@
-package fr.ipst.back_medecin_rdv.entities;
+package fr.ipst.back_medecin_rdv.dto;
 
-import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
-@Table(name = "user", schema = "medecinrdv")
-public class UserEntity {
+public class UserDto {
     private Long idUser;
     private String nom;
     private String prenom;
@@ -13,8 +10,6 @@ public class UserEntity {
     private String password;
     private String telephone;
 
-    @Id
-    @Column(name = "id_user", nullable = false)
     public Long getIdUser() {
         return idUser;
     }
@@ -23,8 +18,6 @@ public class UserEntity {
         this.idUser = idUser;
     }
 
-    @Basic
-    @Column(name = "nom", nullable = false, length = 255)
     public String getNom() {
         return nom;
     }
@@ -33,8 +26,6 @@ public class UserEntity {
         this.nom = nom;
     }
 
-    @Basic
-    @Column(name = "prenom", nullable = false, length = 255)
     public String getPrenom() {
         return prenom;
     }
@@ -43,8 +34,6 @@ public class UserEntity {
         this.prenom = prenom;
     }
 
-    @Basic
-    @Column(name = "mail", nullable = false, length = 255)
     public String getMail() {
         return mail;
     }
@@ -53,8 +42,6 @@ public class UserEntity {
         this.mail = mail;
     }
 
-    @Basic
-    @Column(name = "password", nullable = false, length = 255)
     public String getPassword() {
         return password;
     }
@@ -63,8 +50,6 @@ public class UserEntity {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "telephone", nullable = false, length = 255)
     public String getTelephone() {
         return telephone;
     }
@@ -77,7 +62,7 @@ public class UserEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserEntity that = (UserEntity) o;
+        UserDto that = (UserDto) o;
         return idUser == that.idUser &&
                 Objects.equals(nom, that.nom) &&
                 Objects.equals(prenom, that.prenom) &&
