@@ -2,6 +2,7 @@ package fr.ipst.back_medecin_rdv.services;
 
 import fr.ipst.back_medecin_rdv.entities.UserEntity;
 import fr.ipst.back_medecin_rdv.repository.IUserRepository;
+import fr.ipst.back_medecin_rdv.services.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
