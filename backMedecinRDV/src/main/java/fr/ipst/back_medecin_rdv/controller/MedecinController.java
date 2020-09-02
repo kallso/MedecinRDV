@@ -37,6 +37,10 @@ public class MedecinController {
         return new ResponseEntity<>(medecinMapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
 
+
+
+
+
     // Get One
     @GetMapping(value = "/{id}")
     public ResponseEntity<MedecinDto> getMedecinById(@PathVariable("id") final Long id) {
