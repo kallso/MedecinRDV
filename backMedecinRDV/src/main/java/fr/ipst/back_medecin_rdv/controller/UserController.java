@@ -5,6 +5,7 @@ import fr.ipst.back_medecin_rdv.entities.UserEntity;
 import fr.ipst.back_medecin_rdv.mapper.IUserMapper;
 import fr.ipst.back_medecin_rdv.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,8 +41,7 @@ public class UserController {
 
     @GetMapping("/test/{id}")
     public ResponseEntity<Long> getUserTestById(@PathVariable("id") final Long id) {
-
-        return new ResponseEntity<>(id, HttpStatus.OK);
+        return new ResponseEntity<Long>(id, HttpStatus.OK);
     }
 
 
