@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-form-medecin',
@@ -7,25 +7,28 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./form-medecin.component.css']
 })
 export class FormMedecinComponent implements OnInit {
-  formMedecin: FormGroup
+  formMedecin: FormGroup;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.formMedecin = new FormGroup({
       nom: new FormControl(),
       prenom: new FormControl(),
       telephone: new FormControl(),
-      codePostal: new FormControl(), 
+      codePostal: new FormControl(),
       adresse: new FormControl(),
       ville: new FormControl(),
       specialisation: new FormControl(),
       mail: new FormControl(),
       tempsRdv: new FormControl(),
       motDePasse: new FormControl(),
-    })
+    });
   }
+
   onSubmit() {
+    // APPEL AU BACK
     return null;
   }
 

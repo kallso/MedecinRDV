@@ -1,78 +1,78 @@
 <h3>S’enregistrer gratuitement</h3>
 <form [formGroup]="formMedecin" (ngSubmit)="onSubmit()">
-    <input
-      type="text"
-      name="nom"
-      id="nom"
-      formControlName="nom"
-      placeholder="Nom"
-      [required]="true"
-    />
-  
-    <input
-      type="text"
-      name="prenom"
-      id="prenom"
-      formControlName="prenom"
-      placeholder="Prénom"
-      [required]="true"
-    />
+  <input
+    type="text"
+    name="nom"
+    id="nom"
+    formControlName="nom"
+    placeholder="Nom"
+    [required]="true"
+  />
 
-    <input
+  <input
+    type="text"
+    name="prenom"
+    id="prenom"
+    formControlName="prenom"
+    placeholder="Prénom"
+    [required]="true"
+  />
+
+  <input
     type="tel"
     name="telephone"
     id="telephone"
     formControlName="telephone"
     placeholder="Téléphone"
     [required]="true"
-    />
+  />
 
-    <input
+  <input
     type="text"
     name="codePostal"
     id="codePostal"
     formControlName="codePostal"
     placeholder="Code Postal"
     [required]="true"
-    />
+  />
 
-    <input
+  <input
     type="text"
     name="adresse"
     id="adresse"
     formControlName="adresse"
     placeholder="Adresse"
     [required]="true"
-    />
+  />
 
-    <input
+  <input
     type="text"
     name="ville"
     id="ville"
     formControlName="ville"
     placeholder="Ville"
     [required]="true"
-    />
+  />
 
-    <input
+  <input
     type="text"
     name="spécialisation"
     id="spécialisation"
     formControlName="spécialisation"
     placeholder="Spécialisation"
     [required]="true"
-    />
+  />
 
-    <input
+  <input
     type="email"
     name="mail"
     id="mail"
     formControlName="mail"
     placeholder="Mail"
     [required]="true"
-    />
+  />
 
-    <input
+  <input
     type="time"
     value=""
     name="tempsRdv"
@@ -80,16 +80,16 @@
     formControlName="tempsRdv"
     placeholder="Temps RDV"
     [required]="true"
-    />
+  />
 
-    <input
+  <input
     type="password"
     name="motDePasse"
     id="motDePasse"
     formControlName="motDePasse"
     placeholder="Mot de passe"
     [required]="true"
-    />
-  
-    <button type="submit" class="button blue">Enregistrer</button>
-  </form> 
+  />
+
+  <button type="submit" class="button blue">Enregistrer</button>
+</form>
