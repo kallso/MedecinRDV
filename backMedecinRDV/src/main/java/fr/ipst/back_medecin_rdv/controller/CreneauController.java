@@ -23,7 +23,7 @@ public class CreneauController {
 
     // Get All
     @GetMapping
-    public ResponseEntity<List<CreneauDto>> getAll() {
+    public ResponseEntity<List<CreneauDto>> getAllCreneaux() {
         List<CreneauEntity> creneau = creneauService.getAll();
         creneauMapper.listeEntitesVersListeDto(creneau);
         return ResponseEntity.ok(creneauMapper.listeEntitesVersListeDto(creneauService.getAll()));

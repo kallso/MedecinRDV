@@ -23,7 +23,7 @@ public class PatientController {
 
     // Get All
     @GetMapping
-    public ResponseEntity<List<PatientDto>> getAll() {
+    public ResponseEntity<List<PatientDto>> getAllPatients() {
         List<PatientEntity> patient = patientService.getAll();
         patientMapper.listeEntitesVersListeDto(patient);
         return ResponseEntity.ok(patientMapper.listeEntitesVersListeDto(patientService.getAll()));

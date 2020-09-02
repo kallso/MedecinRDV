@@ -23,7 +23,7 @@ public class RdvController {
 
     // Get All
     @GetMapping
-    public ResponseEntity<List<RdvDto>> getAll() {
+    public ResponseEntity<List<RdvDto>> getAllRdvs() {
         List<RdvEntity> rdv = rdvService.getAll();
         rdvMapper.listeEntitesVersListeDto(rdv);
         return ResponseEntity.ok(rdvMapper.listeEntitesVersListeDto(rdvService.getAll()));
