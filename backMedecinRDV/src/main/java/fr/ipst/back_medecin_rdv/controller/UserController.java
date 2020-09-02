@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -36,6 +36,14 @@ public class UserController {
 
         return new ResponseEntity<>(userMapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
+
+
+    @GetMapping("/test/{id}")
+    public ResponseEntity<Long> getUserTestById(@PathVariable("id") final Long id) {
+
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
 
     // Get One
     @GetMapping(value = "/{id}")

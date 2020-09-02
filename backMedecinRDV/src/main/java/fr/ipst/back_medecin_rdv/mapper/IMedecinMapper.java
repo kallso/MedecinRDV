@@ -5,9 +5,11 @@ import fr.ipst.back_medecin_rdv.dto.UserDto;
 import fr.ipst.back_medecin_rdv.entities.MedecinEntity;
 import fr.ipst.back_medecin_rdv.entities.UserEntity;
 import org.mapstruct.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 @Mapper
 public interface IMedecinMapper {
     MedecinDto entiteVersDto(MedecinEntity medecinEntity);
