@@ -14,6 +14,7 @@ public class MedecinEntity {
     private String ville;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_medecin", nullable = false)
     public int getIdMedecin() {
         return idMedecin;

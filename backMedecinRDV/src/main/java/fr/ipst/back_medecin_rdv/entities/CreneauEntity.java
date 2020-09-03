@@ -12,6 +12,7 @@ public class CreneauEntity {
     private Timestamp dateFin;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_creneau", nullable = false)
     public int getIdCreneau() {
         return idCreneau;

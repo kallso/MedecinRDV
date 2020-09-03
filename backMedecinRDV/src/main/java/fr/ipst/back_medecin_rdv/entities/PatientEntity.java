@@ -10,6 +10,7 @@ public class PatientEntity {
     private int numSecu;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_patient", nullable = false)
     public int getIdPatient() {
         return idPatient;

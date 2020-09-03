@@ -14,6 +14,7 @@ public class UserEntity {
     private String telephone;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user", nullable = false)
     public Long getIdUser() {
         return idUser;
