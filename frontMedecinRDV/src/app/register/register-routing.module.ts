@@ -7,7 +7,7 @@ import { FormPatientComponent } from './form-patient/form-patient.component';
 const routes: Routes = [
   {
     path: '',
-    component: RegisterComponent, 
+    component: RegisterComponent,
     children: [
       {
         path: 'form-medecin',
@@ -18,7 +18,7 @@ const routes: Routes = [
         component: FormPatientComponent
       },
     ]
-  }, 
+  },
 ];
 
 @NgModule({

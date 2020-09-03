@@ -450,6 +450,7 @@
 :root {
   --azure: #18a0fb;
   --black: #000;
+  --light-grey: rgba(0, 0, 0, 0.8);
   --white: #fff;
   --header-height: 93px;
   --footer-height: 122px;
@@ -463,6 +464,28 @@ body {
 
 * {
   font-family: Montserrat, sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -0.72px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1.39;
+  letter-spacing: -0.54px;
+  color: var(--light-grey);
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -0.36px;
 }
 
 ul, li {
@@ -531,4 +554,5 @@ button:active:after {
   display: flex;
   min-width: 192px;
   justify-content: center;
+  align-items: center;
 }

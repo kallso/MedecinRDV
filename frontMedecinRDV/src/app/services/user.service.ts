@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Ressources} from '../app.constants';
 import {User} from '../modeles/user.model';
-import {tap} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
+import {Subject, throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MedecinService {
+export class UserService {
+  private users: User[] = [];
+  usersChange = new Subject<User[]>();
 
   constructor(private http: HttpClient, private ressources: Ressources) {}
 
-  private cours: Cours[] = [];
-  unCours: Cours = new Cours(0, '');
-  coursChange = new Subject<Cours[]>();
-  listeCoursAssocies: Cours[] = [];
+  private static gererErreur(erreur: HttpErrorResponse) {
+    const errorMessage = 'An unknown error occured!';
+
+    if (!erreur.error || !erreur.error.error) {
+    }
+    return throwError(errorMessage);
+  }
 
   /*setCours(cours: Cours[]) {
     this.cours = cours;
@@ -64,10 +70,10 @@ export class MedecinService {
         user
       )
       .pipe(
-        catchError(this.gererErreur),
+        catchError(UserService.gererErreur),
         tap(userSauve => {
-          this.cours.push(userSauve);
-          this.coursChange.next(this.cours.slice());
+          this.users.push(userSauve);
+          this.usersChange.next(this.users.slice());
         })
       );
   }
@@ -102,14 +108,6 @@ export class MedecinService {
       );
   }
 
-  gererErreur(erreur: HttpErrorResponse) {
-    const errorMessage = 'An unknown error occured!';
-
-    if (!erreur.error || !erreur.error.error) {
-    }
-    return throwError(errorMessage);
-  }
-
   getCoursAssocies() {
     return this.listeCoursAssocies.slice();
   }
@@ -117,4 +115,5 @@ export class MedecinService {
   setCoursAssocies(cours: Cours[]) {
     this.listeCoursAssocies = cours;
   }*/
+
 }
