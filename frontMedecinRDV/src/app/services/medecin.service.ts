@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Ressources} from '../app.constants';
-import {User} from '../modeles/user.model';
 import {catchError, tap} from 'rxjs/operators';
 import {Subject, throwError} from 'rxjs';
+import {Medecin} from '../models/medecin.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  private users: User[] = [];
-  usersChange = new Subject<User[]>();
+export class MedecinService {
+  private medecins: Medecin[] = [];
+  medecinsChange = new Subject<Medecin[]>();
 
   constructor(private http: HttpClient, private ressources: Ressources) {}
 
@@ -63,17 +63,17 @@ export class UserService {
       );
   }*/
 
-  ajouterUser(user: User) {
+  ajouterMedecin(medecin: Medecin) {
     return this.http
-      .post<User>(
-        this.ressources.urlBackEnd + this.ressources.urlUsers,
-        user
+      .post<Medecin>(
+        this.ressources.urlBackEnd + this.ressources.urlMedecins,
+        medecin
       )
       .pipe(
-        catchError(UserService.gererErreur),
-        tap(userSauve => {
-          this.users.push(userSauve);
-          this.usersChange.next(this.users.slice());
+        catchError(MedecinService.gererErreur),
+        tap(medecinSauve => {
+          this.medecins.push(medecinSauve);
+          this.medecinsChange.next(this.medecins.slice());
         })
       );
   }

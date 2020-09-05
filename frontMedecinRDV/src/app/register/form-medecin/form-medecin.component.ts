@@ -1,7 +1,7 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Subscription} from 'rxjs';
-import {UserService} from '../../services/user.service';
+import {MedecinService} from '../../services/medecin.service';
 
 @Component({
   selector: 'app-form-medecin',
@@ -10,23 +10,21 @@ import {UserService} from '../../services/user.service';
 })
 export class FormMedecinComponent implements OnInit, OnDestroy {
   formMedecin: FormGroup;
-  souscriptionUserAjoute: Subscription;
+  souscriptionMedecinAjoute: Subscription;
 
-  constructor(
-    private userService: UserService
-  ) {}
+  constructor(private medecinService: MedecinService) {}
 
   ngOnInit(): void {
     this.formMedecin = new FormGroup({
       nom: new FormControl(),
       prenom: new FormControl(),
       telephone: new FormControl(),
-      // codePostal: new FormControl(),
-      // adresse: new FormControl(),
-      // ville: new FormControl(),
-      // specialisation: new FormControl(),
+      codePostal: new FormControl(),
+      adresse: new FormControl(),
+      ville: new FormControl(),
+      specialisation: new FormControl(),
       mail: new FormControl(),
-      // tempsRDV: new FormControl(),
+      tempsRDV: new FormControl(),
       password: new FormControl(),
     });
   }
@@ -34,11 +32,11 @@ export class FormMedecinComponent implements OnInit, OnDestroy {
   onSubmit() {
     console.log('form envoyé!', this.formMedecin.value);
 
-    this.souscriptionUserAjoute = this.userService
-      .ajouterUser(this.formMedecin.value)
+    this.souscriptionMedecinAjoute = this.medecinService
+      .ajouterMedecin(this.formMedecin.value)
       .subscribe(
-        (userSauve) => {
-          console.log('user sauvé', userSauve);
+        (medecinSauve) => {
+          console.log('medecin sauvé', medecinSauve);
         },
         (error) => {
           // TODO : Gestion de l'erreur
@@ -47,8 +45,8 @@ export class FormMedecinComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.souscriptionUserAjoute) {
-      this.souscriptionUserAjoute.unsubscribe();
+    if (this.souscriptionMedecinAjoute) {
+      this.souscriptionMedecinAjoute.unsubscribe();
     }
   }
 

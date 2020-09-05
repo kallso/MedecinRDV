@@ -1,4 +1,4 @@
-export class User {
+export abstract class User {
   constructor(
     public nom: string,
     public prenom: string,

@@ -9,6 +9,6 @@ export class Ressources {
   public urlBackEnd = environment.urlBackEnd;
 
   public urlUsers = 'api/users';
-  public urlMedecins = 'api/patients';
-  public urlPatients = 'api/medecins';
+  public urlMedecins = 'api/medecins';
+  public urlPatients = 'api/patients';
 }

@@ -1,7 +1,7 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Subscription} from 'rxjs';
-import {UserService} from '../../services/user.service';
+import {MedecinService} from '../../services/medecin.service';
 
 @Component({
   selector: 'app-form-patient',
@@ -13,7 +13,7 @@ export class FormPatientComponent implements OnInit, OnDestroy {
   souscriptionPatientAjoute: Subscription;
 
   constructor(
-    private userService: UserService
+    private userService: MedecinService
   ) {}
 
   ngOnInit(): void {
@@ -21,13 +21,9 @@ export class FormPatientComponent implements OnInit, OnDestroy {
       nom: new FormControl(),
       prenom: new FormControl(),
       telephone: new FormControl(),
-      // codePostal: new FormControl(),
-      // adresse: new FormControl(),
-      // ville: new FormControl(),
-      // specialisation: new FormControl(),
       mail: new FormControl(),
-      // tempsRDV: new FormControl(),
       password: new FormControl(),
+      numSecu: new FormControl()
     });
   }
 
@@ -35,7 +31,7 @@ export class FormPatientComponent implements OnInit, OnDestroy {
     console.log('form envoyé!', this.formPatient.value);
 
     this.souscriptionPatientAjoute = this.userService
-      .ajouterUser(this.formPatient.value)
+      .ajouterMedecin(this.formPatient.value)
       .subscribe(
         (userSauve) => {
           console.log('user sauvé', userSauve);
