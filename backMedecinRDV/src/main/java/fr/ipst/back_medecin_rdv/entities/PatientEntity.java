@@ -4,21 +4,10 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "patient", schema = "medecinrdv")
-public class PatientEntity {
-    private int idPatient;
+@Table(name = "patient")
+@PrimaryKeyJoinColumn(name = "id_user")
+public class PatientEntity extends UserEntity {
     private int numSecu;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_patient", nullable = false)
-    public int getIdPatient() {
-        return idPatient;
-    }
-
-    public void setIdPatient(int idPatient) {
-        this.idPatient = idPatient;
-    }
 
     @Basic
     @Column(name = "num_secu", nullable = false)
@@ -35,12 +24,11 @@ public class PatientEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PatientEntity that = (PatientEntity) o;
-        return idPatient == that.idPatient &&
-                numSecu == that.numSecu;
+        return numSecu == that.numSecu;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idPatient, numSecu);
+        return Objects.hash(numSecu);
     }
 }

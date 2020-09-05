@@ -1,11 +1,16 @@
 package fr.ipst.back_medecin_rdv.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user", schema = "medecinrdv")
-public class UserEntity {
+@Table(name = "user")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class UserEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private Long idUser;
     private String nom;
     private String prenom;

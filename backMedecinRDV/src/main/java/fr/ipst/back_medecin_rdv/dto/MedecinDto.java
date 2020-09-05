@@ -1,23 +1,13 @@
 package fr.ipst.back_medecin_rdv.dto;
 
-import javax.persistence.*;
 import java.util.Objects;
 
-public class MedecinDto {
-    private int idMedecin;
+public class MedecinDto extends UserDto {
     private String specialisation;
     private String adresse;
     private int tempsRdv;
     private int codePostal;
     private String ville;
-
-    public int getIdMedecin() {
-        return idMedecin;
-    }
-
-    public void setIdMedecin(int idMedecin) {
-        this.idMedecin = idMedecin;
-    }
 
     public String getSpecialisation() {
         return specialisation;
@@ -64,8 +54,7 @@ public class MedecinDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MedecinDto that = (MedecinDto) o;
-        return idMedecin == that.idMedecin &&
-                tempsRdv == that.tempsRdv &&
+        return  tempsRdv == that.tempsRdv &&
                 codePostal == that.codePostal &&
                 Objects.equals(specialisation, that.specialisation) &&
                 Objects.equals(adresse, that.adresse) &&
@@ -74,6 +63,6 @@ public class MedecinDto {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idMedecin, specialisation, adresse, tempsRdv, codePostal, ville);
+        return Objects.hash(specialisation, adresse, tempsRdv, codePostal, ville);
     }
 }

@@ -1,6 +1,5 @@
 package fr.ipst.back_medecin_rdv.dto;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 

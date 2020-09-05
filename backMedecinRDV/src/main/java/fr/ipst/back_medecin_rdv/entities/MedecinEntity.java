@@ -4,25 +4,14 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "medecin", schema = "medecinrdv")
-public class MedecinEntity {
-    private int idMedecin;
+@Table(name = "medecin")
+@PrimaryKeyJoinColumn(name = "id_user")
+public class MedecinEntity extends UserEntity {
     private String specialisation;
     private String adresse;
     private int tempsRdv;
     private int codePostal;
     private String ville;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_medecin", nullable = false)
-    public int getIdMedecin() {
-        return idMedecin;
-    }
-
-    public void setIdMedecin(int idMedecin) {
-        this.idMedecin = idMedecin;
-    }
 
     @Basic
     @Column(name = "specialisation", nullable = false, length = 255)
@@ -79,8 +68,7 @@ public class MedecinEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MedecinEntity that = (MedecinEntity) o;
-        return idMedecin == that.idMedecin &&
-                tempsRdv == that.tempsRdv &&
+        return  tempsRdv == that.tempsRdv &&
                 codePostal == that.codePostal &&
                 Objects.equals(specialisation, that.specialisation) &&
                 Objects.equals(adresse, that.adresse) &&
@@ -89,6 +77,6 @@ public class MedecinEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idMedecin, specialisation, adresse, tempsRdv, codePostal, ville);
+        return Objects.hash(specialisation, adresse, tempsRdv, codePostal, ville);
     }
 }

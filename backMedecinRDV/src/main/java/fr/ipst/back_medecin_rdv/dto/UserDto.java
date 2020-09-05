@@ -2,7 +2,7 @@ package fr.ipst.back_medecin_rdv.dto;
 
 import java.util.Objects;
 
-public class UserDto {
+public abstract class UserDto {
     private Long idUser;
     private String nom;
     private String prenom;
@@ -76,3 +76,4 @@ public class UserDto {
         return Objects.hash(idUser, nom, prenom, mail, password, telephone);
     }
 }
+
