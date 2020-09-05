@@ -2,10 +2,10 @@
 <h2>Le compte DoctoFind est gratuit, profitez-en pour vous enregistrer gratuitement !</h2>
 <ul>
 <li>
-    <a routerLink="form-patient" class="button white">Inscription Patient</a>
+    <a routerLink="form-patient" class="button white" (click)="permuteColor($event)" id="js-patient">Inscription Patient</a>
 </li>
 <li>
-    <a routerLink="form-medecin" class="button blue">Inscription Médecin</a>
+    <a routerLink="form-medecin" class="button blue" (click)="permuteColor($event)" id="js-medecin">Inscription Médecin</a>
 </li>
 </ul>
 
