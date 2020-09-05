@@ -34,7 +34,7 @@ public class MedecinEntity extends UserEntity {
     }
 
     @Basic
-    @Column(name = "tempsRDV", nullable = false)
+    @Column(name = "temps_rdv", nullable = false)
     public int getTempsRdv() {
         return tempsRdv;
     }
@@ -44,7 +44,7 @@ public class MedecinEntity extends UserEntity {
     }
 
     @Basic
-    @Column(name = "codePostal", nullable = false)
+    @Column(name = "code_postal", nullable = false)
     public int getCodePostal() {
         return codePostal;
     }
