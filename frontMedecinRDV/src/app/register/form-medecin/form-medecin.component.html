@@ -1,96 +1,135 @@
 <h3>S’enregistrer gratuitement</h3>
-<form [formGroup]="formMedecin" (ngSubmit)="onSubmit()">
+<form ngNativeValidate [formGroup]="formMedecin" (ngSubmit)="onSubmit()">
   <div class="inputs">
-    <input
-      type="text"
-      name="nom"
-      id="nom"
-      formControlName="nom"
-      placeholder="Nom"
-      [required]="true"
-    />
 
-    <input
-      type="text"
-      name="prenom"
-      id="prenom"
-      formControlName="prenom"
-      placeholder="Prénom"
-      [required]="true"
-    />
+    <div class="form-field" id="nom-field">
+      <input
+        type="text"
+        name="nom"
+        id="nom"
+        formControlName="nom"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="nom">Nom</label>
+    </div>
 
-    <input
-      type="tel"
-      name="telephone"
-      id="telephone"
-      formControlName="telephone"
-      placeholder="Téléphone"
-      [required]="true"
-    />
+    <div class="form-field" id="prenom-field">
+      <input
+        type="text"
+        name="prenom"
+        id="prenom"
+        formControlName="prenom"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="prenom">Prénom</label>
+    </div>
 
-    <input
-      type="text"
-      name="codePostal"
-      id="codePostal"
-      formControlName="codePostal"
-      placeholder="Code Postal"
-      [required]="true"
-    />
+    <div class="form-field" id="mail-field">
+      <input
+        type="email"
+        name="mail"
+        id="mail"
+        formControlName="mail"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="mail">Mail</label>
+    </div>
 
-    <input
-      type="text"
-      name="adresse"
-      id="adresse"
-      formControlName="adresse"
-      placeholder="Adresse"
-      [required]="true"
-    />
+    <div class="form-field" id="telephone-field">
+      <input
+        type="tel"
+        name="telephone"
+        id="telephone"
+        minlength="10"
+        formControlName="telephone"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="telephone">Téléphone</label>
+    </div>
 
-    <input
-      type="text"
-      name="ville"
-      id="ville"
-      formControlName="ville"
-      placeholder="Ville"
-      [required]="true"
-    />
+    <div class="form-field" id="adresse-field">
+      <input
+        type="text"
+        name="adresse"
+        id="adresse"
+        formControlName="adresse"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="adresse">Adresse</label>
+    </div>
 
-    <input
-      type="text"
-      name="specialisation"
-      id="specialisation"
-      formControlName="specialisation"
-      placeholder="Spécialisation"
-      [required]="true"
-    />
+    <div class="form-field" id="codePostal-field">
+      <input
+        type="number"
+        name="codePostal"
+        id="codePostal"
+        pattern="^(?:[0-8]\d|9[0-8])\d{3}$"
+        formControlName="codePostal"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="codePostal">Code Postal</label>
+    </div>
 
-    <input
-      type="email"
-      name="mail"
-      id="mail"
-      formControlName="mail"
-      placeholder="Mail"
-      [required]="true"
-    />
+    <div class="form-field" id="ville-field">
+      <input
+        type="text"
+        name="ville"
+        id="ville"
+        formControlName="ville"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="ville">Ville</label>
+    </div>
 
-    <input
-      type="time"
-      value=""
-      name="tempsRDV"
-      id="tempsRDV"
-      formControlName="tempsRDV"
-      placeholder="Temps RDV"
-      [required]="true"
-    />
+    <div class="form-field" id="specialisation-field">
+      <input
+        appTestColorBlue
+        type="text"
+        name="specialisation"
+        id="specialisation"
+        formControlName="specialisation"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="specialisation">Spécialisation</label>
+    </div>
 
-    <input
-      type="password"
-      name="password"
-      id="password"
-      formControlName="password"
-      placeholder="Mot de passe"
-      [required]="true"
-    />
+    <div class="form-field" id="tempsRDV-field">
+      <input
+        type="time"
+        value="00:30"
+        min="00:15"
+        max="03:00"
+        step="900"
+        name="tempsRDV"
+        id="tempsRDV"
+        #tempsRDV
+        formControlName="tempsRDV"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="tempsRDV">Temps RDV</label>
+    </div>
+
+    <div class="form-field" id="password-field">
+      <input
+        type="password"
+        name="password"
+        id="password"
+        minlength="5"
+        formControlName="password"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="password">Mot de passe</label>
+    </div>
 
   </div>
 

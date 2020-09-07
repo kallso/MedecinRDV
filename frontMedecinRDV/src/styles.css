@@ -449,11 +449,13 @@
 /* VARS */
 :root {
   --azure: #18a0fb;
+  --green: #6fcf97;
+  --red: #eb5757;
   --black: #000;
   --light-grey: rgba(0, 0, 0, 0.8);
   --white: #fff;
   --header-height: 93px;
-  --footer-height: 122px;
+  --footer-height: 92px;
 }
 
 /* TYPOGRAPHY */
@@ -464,17 +466,18 @@ body {
 
 * {
   font-family: Montserrat, sans-serif;
+  box-sizing: border-box;
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 300;
   line-height: 1.5;
   letter-spacing: -0.72px;
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 300;
   line-height: 1.39;
   letter-spacing: -0.54px;
@@ -555,4 +558,7 @@ button:active:after {
   min-width: 192px;
   justify-content: center;
   align-items: center;
+  box-sizing: content-box;
 }
+
+/* Bonne taille maquette pour un desktop 1980 * 1080 : 1980 * 970 */

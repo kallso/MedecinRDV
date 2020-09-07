@@ -1,5 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {MedecinService} from '../../services/medecin.service';
 
@@ -11,22 +11,26 @@ import {MedecinService} from '../../services/medecin.service';
 export class FormMedecinComponent implements OnInit, OnDestroy {
   formMedecin: FormGroup;
   souscriptionMedecinAjoute: Subscription;
+  @ViewChild('tempsRDV', {static: true}) tempsRdvEl;
 
-  constructor(private medecinService: MedecinService) {}
+  constructor(private medecinService: MedecinService) {
+  }
 
   ngOnInit(): void {
     this.formMedecin = new FormGroup({
       nom: new FormControl(),
       prenom: new FormControl(),
+      mail: new FormControl(null, Validators.email),
       telephone: new FormControl(),
-      codePostal: new FormControl(),
       adresse: new FormControl(),
+      codePostal: new FormControl(),
       ville: new FormControl(),
       specialisation: new FormControl(),
-      mail: new FormControl(),
-      tempsRDV: new FormControl(),
+      tempsRDV: new FormControl('00:30'),
       password: new FormControl(),
     });
+
+    this.formMedecin.get('tempsRDV').setValidators(control => !this.tempsRdvEl.nativeElement.reportValidity() ? {tempsRdvEl: true} : null);
   }
 
   onSubmit() {
@@ -42,6 +46,7 @@ export class FormMedecinComponent implements OnInit, OnDestroy {
           // TODO : Gestion de l'erreur
         }
       );
+
   }
 
   ngOnDestroy(): void {
@@ -49,5 +54,4 @@ export class FormMedecinComponent implements OnInit, OnDestroy {
       this.souscriptionMedecinAjoute.unsubscribe();
     }
   }
-
 }
