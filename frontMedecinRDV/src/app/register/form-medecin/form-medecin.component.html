@@ -65,10 +65,12 @@
 
     <div class="form-field" id="codePostal-field">
       <input
-        type="number"
+        type="text"
         name="codePostal"
         id="codePostal"
         pattern="^(?:[0-8]\d|9[0-8])\d{3}$"
+        (keypress)="allowOnlyNumbersOnKeyPress($event)"
+        (paste)="allowOnlyNumbersOnPaste($event)"
         formControlName="codePostal"
         placeholder=" "
         [required]="true"

@@ -54,4 +54,16 @@ export class FormMedecinComponent implements OnInit, OnDestroy {
       this.souscriptionMedecinAjoute.unsubscribe();
     }
   }
+
+  allowOnlyNumbersOnKeyPress(event: KeyboardEvent) {
+    if (event.which < 48 || event.which > 58) {
+      return false;
+    }
+  }
+
+  allowOnlyNumbersOnPaste(event: ClipboardEvent) {
+    if (event.clipboardData.getData('Text').match(/[^\d]/)) {
+      event.preventDefault();
+    }
+  }
 }
