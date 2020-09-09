@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 
+/* Supprimer le Injectable car un service singleton ne sert a rien. Remplacer par des constantes statics final */
 @Injectable({
   providedIn: 'root'
 })
