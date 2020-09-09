@@ -17,6 +17,10 @@ export class RegisterComponent implements OnInit {
     const bouton = event.target;
 
     if (!bouton.classList.contains('cliked')) {
+      
+      
+  /* eviter noms en francais +  recuperer l'element grace au systeme d'angular pas le systeme normal en demandant l'injection de ElementRef dans le constructor*/
+
       const bouton2 = document.getElementById(bouton.id === 'js-patient' ? 'js-medecin' : 'js-patient');
 
       bouton.classList.toggle('white');
