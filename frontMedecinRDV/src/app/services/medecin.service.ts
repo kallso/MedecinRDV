@@ -13,6 +13,8 @@ export class MedecinService {
   medecinsChange = new Subject<Medecin[]>();
 
   constructor(private http: HttpClient, private ressources: Ressources) {}
+  
+  /* eviter methodes en francais*/
 
   private static gererErreur(erreur: HttpErrorResponse) {
     const errorMessage = 'An unknown error occured!';
@@ -62,6 +64,10 @@ export class MedecinService {
         })
       );
   }*/
+  
+  
+  /* eviter methodes en francais*/
+
 
   ajouterMedecin(medecin: Medecin) {
     return this.http
