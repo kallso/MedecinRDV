@@ -33,7 +33,6 @@ public class RdvController {
     @PostMapping
     public ResponseEntity<RdvDto> createRdv(@RequestBody final RdvDto rdvDto) {
         final RdvEntity saved = rdvService.save(rdvMapper.dtoVersEntite(rdvDto));
-
         return new ResponseEntity<>(rdvMapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
 

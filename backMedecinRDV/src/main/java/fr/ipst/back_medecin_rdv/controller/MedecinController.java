@@ -24,8 +24,6 @@ public class MedecinController {
     // Get All
     @GetMapping
     public ResponseEntity<List<MedecinDto>> getAllMedecins() {
-        List<MedecinEntity> medecin = medecinService.getAll();
-        medecinMapper.listeEntitesVersListeDto(medecin);
         return ResponseEntity.ok(medecinMapper.listeEntitesVersListeDto(medecinService.getAll()));
     }
 
@@ -36,7 +34,6 @@ public class MedecinController {
 
         return new ResponseEntity<>(medecinMapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
-
 
 
 
@@ -64,6 +61,20 @@ public class MedecinController {
     public void deleteMedecin(@PathVariable("id") final Long id) {
         this.medecinService.deleteById(id);
     }
+
+
+    //Get by ville
+    @GetMapping("/ville={ville}")
+    public ResponseEntity<List<MedecinDto>> getMedecinByVille(@PathVariable("ville") final String ville) {
+        return ResponseEntity.ok(medecinMapper.listeEntitesVersListeDto(medecinService.findByVille(ville)));
+    }
+
+    //Get by ville and nom or spe
+    @GetMapping("/vns/nom={nom}&ville={ville}&spe={spe}")
+    public ResponseEntity<List<MedecinDto>> findByVilleAndNomOrSpecialisation(@PathVariable("ville") final String ville, @PathVariable("nom") final String nom, @PathVariable("spe") final String spe) {
+        return ResponseEntity.ok(medecinMapper.listeEntitesVersListeDto(medecinService.findByVilleAndNomOrSpecialisation(ville,nom,spe)));
+    }
+
 
     /*@PostMapping("/get")
     public ResponseEntity<DataTablesOutput<MedecinDto>> getUser(
