@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `medecin` (
   `id_user` int(11) NOT NULL,
   `specialisation` varchar(255) NOT NULL,
   `adresse` varchar(255) NOT NULL,
-  `tempsRDV` int(11) NOT NULL,
+  `temps_rdv` int(11) NOT NULL,
   `code_postal` int(11) NOT NULL,
   `ville` varchar(255) NOT NULL,
   PRIMARY KEY (`id_user`),
