@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `medecin` (
   `specialisation` varchar(255) NOT NULL,
   `adresse` varchar(255) NOT NULL,
   `tempsRDV` int(11) NOT NULL,
-  `codePostal` int(11) NOT NULL,
+  `code_postal` int(11) NOT NULL,
   `ville` varchar(255) NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `id_medecin` (`id_user`)
