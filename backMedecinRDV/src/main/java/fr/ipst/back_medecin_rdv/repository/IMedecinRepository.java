@@ -16,6 +16,10 @@ public interface IMedecinRepository extends JpaRepository<MedecinEntity, Long> {
 
 //    @Query("select u from medecin u where (u.ville = :ville and u.nom = :nom) or (u.ville = :ville and n.specialisation = :specialisation)")
 //    List<MedecinEntity> findByVilleAndNomOrSpecialisation(@Param("ville") String ville, @Param("nom") String nom, @Param("specialisation") String specialisation);
+    
+        /* A ESSAYER 
+        @Query(value = "select u from medecin u where (u.ville = :ville and u.nom = :nom) or (u.ville = :ville and n.specialisation = :specialisation", nativeQuery = true)
+        */
 
     List<MedecinEntity> findByVilleAndNomOrVilleAndSpecialisation(@Param("ville") String ville, @Param("nom") String nom,@Param("ville") String ville2, @Param("specialisation") String specialisation);
 
