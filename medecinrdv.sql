@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 05 sep. 2020 à 23:00
+-- Généré le :  ven. 11 sep. 2020 à 23:57
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -57,6 +57,16 @@ CREATE TABLE IF NOT EXISTS `medecin` (
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `id_medecin` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `medecin`
+--
+
+INSERT INTO `medecin` (`id_user`, `specialisation`, `adresse`, `temps_rdv`, `code_postal`, `ville`) VALUES
+(27, 'cardio', '2 rue des chiens aux aboies', 30, 31400, 'Toulouse'),
+(28, 'pediatre', '5 rue des mamies débousolées', 45, 31100, 'Toulouse'),
+(29, 'cardio', '15 rue des pillules fraiches', 15, 31300, 'Nantes'),
+(30, 'cardio', '26 rue des bonbonnes enflammées', 60, 31600, 'Toulouse');
 
 -- --------------------------------------------------------
 
@@ -112,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `telephone` varchar(255) NOT NULL,
   PRIMARY KEY (`id_user`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
@@ -122,7 +132,11 @@ INSERT INTO `user` (`id_user`, `nom`, `prenom`, `mail`, `password`, `telephone`)
 (1, 'Raiff', 'Bertrand', 'bertrand@VM.com', 'LAVMMARCHEPA', '+33666666666'),
 (2, 'Garcia', 'Simon', 'fantome@gmail.com', 'jesuispalaaaaa', '+33541235822'),
 (3, 'Balatia', 'Yaya', 'yayaToure@but.com', 'CLEBUUUUUUT', '+33544658499'),
-(8, 'Ulster', 'Francis', 'franfran@casonade.slah', '123456789', '+3366666666');
+(8, 'Ulster', 'Francis', 'franfran@casonade.slah', '123456789', '+3366666666'),
+(27, 'Costner', 'Kevin', 'aieaie@bobo.fr', '123456', '01456687862'),
+(28, 'Corias', 'Pierre', 'aiiiicafaitmal@bobo.fr', '123456', '01456687862'),
+(29, 'Mas', 'Charles', 'piquouze@bobo.fr', '123456', '01456684598'),
+(30, 'Durand', 'Marc', 'dudu@mama.fr', 'motDePa$$', '0145668458');
 
 --
 -- Contraintes pour les tables déchargées
