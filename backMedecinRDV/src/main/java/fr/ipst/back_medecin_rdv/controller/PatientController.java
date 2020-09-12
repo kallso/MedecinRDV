@@ -47,7 +47,7 @@ public class PatientController {
     }
 
     // Update
-    @PutMapping("/{id}")
+    @PutMapping
     public ResponseEntity<PatientDto> updatePatient(@RequestBody final PatientDto patientDto) {
 
         final PatientEntity saved = this.patientService.update(patientMapper.dtoVersEntite(patientDto));

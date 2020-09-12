@@ -46,7 +46,7 @@ public class RdvController {
     }
 
     // Update
-    @PutMapping("/{id}")
+    @PutMapping
     public ResponseEntity<RdvDto> updateRdv(@RequestBody final RdvDto rdvDto) {
 
         final RdvEntity saved = this.rdvService.update(rdvMapper.dtoVersEntite(rdvDto));

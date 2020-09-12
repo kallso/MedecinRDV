@@ -47,7 +47,7 @@ public class CreneauController {
     }
 
     // Update
-    @PutMapping("/{id}")
+    @PutMapping
     public ResponseEntity<CreneauDto> updateCreneau(@RequestBody final CreneauDto creneauDto) {
 
         final CreneauEntity saved = this.creneauService.update(creneauMapper.dtoVersEntite(creneauDto));
