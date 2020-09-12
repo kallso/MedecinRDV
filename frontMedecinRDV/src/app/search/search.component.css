@@ -63,7 +63,7 @@ input, button {
   padding: 25px 1vw;
 }
 
-h1 {
+.result h1 {
   font-size: 64px;
   color: var(--azure);
   margin-top: 0;

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {MedecinService} from '../services/medecin.service';
 import {Medecin} from '../models/medecin.model';
@@ -21,8 +21,8 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.formulaire = new FormGroup({
-      nomOuSpe: new FormControl(this.nomOuSpe),
-      ville: new FormControl(this.ville)
+      nomOuSpe: new FormControl(),
+      ville: new FormControl()
     });
   }
 

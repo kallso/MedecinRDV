@@ -15,15 +15,74 @@ export class MedecinService {
   constructor(private http: HttpClient) {
   }
 
-  /* eviter methodes en francais*/
-
   private static manageErrors(erreur: HttpErrorResponse) {
     const errorMessage = 'An unknown error occured!';
 
     if (!erreur.error || !erreur.error.error) {
     }
+
     return throwError(errorMessage);
   }
+
+  addMedecin(medecin: Medecin) {
+    return this.http
+      .post<Medecin>(
+        Ressources.urlBackEnd + Ressources.urlMedecins,
+        medecin
+      )
+      .pipe(
+        catchError(MedecinService.manageErrors),
+        tap(medecinSauve => {
+          this.medecins.push(medecinSauve);
+          this.medecinsChange.next(this.medecins.slice());
+        })
+      );
+  }
+
+  getMedecins(ville: string, nomOuSpe: string) {
+    return this.http
+      .get<Medecin[]>(
+        Ressources.urlBackEnd + Ressources.urlMedecins + '/' + Ressources.urlGetMedecinsByVilleNomOuSpe +
+        '/ville=' + ville + '&nomOuSpe=' + nomOuSpe
+      )
+      .pipe(
+        catchError(MedecinService.manageErrors),
+        tap(medecins => {
+          medecins.forEach(medecin => this.medecins.push(medecin));
+          this.medecinsChange.next(this.medecins.slice());
+        })
+      );
+  }
+
+  /*updateMedecin(ville: string, nomOuSpe: string) {
+    return this.http
+      .put<Medecin>(
+        Ressources.urlBackEnd + Ressources.urlMedecins + '/' + Ressources.urlGetMedecinsByVilleNomOuSpe +
+        '/ville=' + ville + '&nomOuSpe=' + nomOuSpe
+      )
+      .pipe(
+        catchError(MedecinService.manageErrors),
+        tap(medecins => {
+          medecins.forEach(medecin => this.medecins.push(medecin));
+          this.medecinsChange.next(this.medecins.slice());
+        })
+      );
+  }
+
+  deleteMedecin(id: number) {
+    return this.http
+      .delete<Medecin[]>(
+        Ressources.urlBackEnd + Ressources.urlMedecins + '/' + Ressources.urlGetMedecinsByVilleNomOuSpe +
+        '/ville=' + ville + '&nomOuSpe=' + nomOuSpe
+      )
+      .pipe(
+        catchError(MedecinService.manageErrors),
+        tap(medecins => {
+          medecins.forEach(medecin => this.medecins.push(medecin));
+          this.medecinsChange.next(this.medecins.slice());
+        })
+      );
+  }*/
 
   /*setCours(cours: Cours[]) {
     this.cours = cours;
@@ -65,36 +124,6 @@ export class MedecinService {
         })
       );
   }*/
-
-  addMedecin(medecin: Medecin) {
-    return this.http
-      .post<Medecin>(
-        Ressources.urlBackEnd + Ressources.urlMedecins,
-        medecin
-      )
-      .pipe(
-        catchError(MedecinService.manageErrors),
-        tap(medecinSauve => {
-          this.medecins.push(medecinSauve);
-          this.medecinsChange.next(this.medecins.slice());
-        })
-      );
-  }
-
-  getMedecins(ville: string, nomOuSpe: string) {
-    return this.http
-      .get<Medecin[]>(
-        Ressources.urlBackEnd + Ressources.urlMedecins + '/' + Ressources.urlGetMedecinsByVilleNomOuSpe +
-        '/ville=' + ville + '&nomOuSpe=' + nomOuSpe
-      )
-      .pipe(
-        catchError(MedecinService.manageErrors),
-        tap(medecins => {
-          medecins.forEach(medecin => this.medecins.push(medecin));
-          this.medecinsChange.next(this.medecins.slice());
-        })
-      );
-  }
 
   /*modifierCours(index: number, coursModifie: Cours) {
     return this.http
