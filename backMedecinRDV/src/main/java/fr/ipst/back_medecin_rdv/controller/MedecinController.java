@@ -35,9 +35,6 @@ public class MedecinController {
         return new ResponseEntity<>(medecinMapper.entiteVersDto(saved), HttpStatus.CREATED);
     }
 
-
-
-
     // Get One
     @GetMapping(value = "/{id}")
     public ResponseEntity<MedecinDto> getMedecinById(@PathVariable("id") final Long id) {
@@ -69,18 +66,9 @@ public class MedecinController {
         return ResponseEntity.ok(medecinMapper.listeEntitesVersListeDto(medecinService.findByVille(ville)));
     }
 
-    //Get by ville and nom or spe
-    @GetMapping("/vns/nom={nom}&ville={ville}&spe={spe}")
-    public ResponseEntity<List<MedecinDto>> findByVilleAndNomOrSpecialisation(@PathVariable("ville") final String ville, @PathVariable("nom") final String nom, @PathVariable("spe") final String spe) {
-        return ResponseEntity.ok(medecinMapper.listeEntitesVersListeDto(medecinService.findByVilleAndNomOrSpecialisation(ville,nom,spe)));
+    //Get by ville and (nom or spe)
+    @GetMapping("/vns/ville={ville}&nomOuSpe={nomOuSpe}")
+    public ResponseEntity<List<MedecinDto>> findByVilleAndNomOrSpecialisation(@PathVariable("ville") final String ville, @PathVariable("nomOuSpe") final String nomOuSpe) {
+        return ResponseEntity.ok(medecinMapper.listeEntitesVersListeDto(medecinService.findByVilleAndNomOrSpecialisation(ville, nomOuSpe)));
     }
-
-
-    /*@PostMapping("/get")
-    public ResponseEntity<DataTablesOutput<MedecinDto>> getUser(
-            @RequestBody final DataTablesInput input) {
-
-        final List<MedecinDto> user = medecinMapper.entiteVersListeDtoTriee(this.medecinService.findAll(input));
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }*/
 }

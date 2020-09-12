@@ -50,14 +50,12 @@ public class MedecinService implements IMedecinService {
 
     @Override
     public List<MedecinEntity> findByVille(String ville) {
-        List<MedecinEntity> listeMedecins = IMedecinRepository.findByVille(ville);
-        return listeMedecins;
+        return IMedecinRepository.findByVille(ville);
     }
 
     @Override
-    public List<MedecinEntity> findByVilleAndNomOrSpecialisation(String ville, String nom, String specialisation) {
-        List<MedecinEntity> listeMedecins = IMedecinRepository.findByVilleAndNomOrVilleAndSpecialisation(ville, nom, ville, specialisation);
-        return listeMedecins;
+    public List<MedecinEntity> findByVilleAndNomOrSpecialisation(String ville, String nomOuSpe) {
+        return IMedecinRepository.findByVilleAndNomOrVilleAndSpecialisation(ville, nomOuSpe, ville, nomOuSpe);
     }
 
 }
