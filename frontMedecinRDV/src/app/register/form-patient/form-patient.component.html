@@ -1,59 +1,69 @@
 <h3>S’enregistrer gratuitement</h3>
-<form [formGroup]="formPatient" (ngSubmit)="onSubmit()">
+<form ngNativeValidate [formGroup]="formPatient" (ngSubmit)="onSubmit()">
   <div class="inputs">
-    <input
-      type="text"
-      name="nom"
-      id="nom"
-      formControlName="nom"
-      placeholder="Nom"
-      [required]="true"
-    />
 
-    <input
-      type="text"
-      name="prenom"
-      id="prenom"
-      formControlName="prenom"
-      placeholder="Prénom"
-      [required]="true"
-    />
+    <div class="form-field" id="nom-field">
+      <input
+        type="text"
+        name="nom"
+        id="nom"
+        formControlName="nom"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="nom">Nom</label>
+    </div>
 
-    <input
-      type="tel"
-      name="telephone"
-      id="telephone"
-      formControlName="telephone"
-      placeholder="Téléphone"
-      [required]="true"
-    />
+    <div class="form-field" id="prenom-field">
+      <input
+        type="text"
+        name="prenom"
+        id="prenom"
+        formControlName="prenom"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="prenom">Prénom</label>
+    </div>
 
-    <input
-      type="email"
-      name="mail"
-      id="mail"
-      formControlName="mail"
-      placeholder="Mail"
-      [required]="true"
-    />
+    <div class="form-field" id="mail-field">
+      <input
+        type="email"
+        name="mail"
+        id="mail"
+        formControlName="mail"
+        placeholder=" "
+        email
+        [required]="true"
+      />
+      <label for="mail">Mail</label>
+    </div>
 
-    <input
-      type="password"
-      name="password"
-      id="password"
-      formControlName="password"
-      placeholder="Mot de passe"
-      [required]="true"
-    />
+    <div class="form-field" id="telephone-field">
+      <input
+        type="tel"
+        name="telephone"
+        id="telephone"
+        minlength="10"
+        formControlName="telephone"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="telephone">Téléphone</label>
+    </div>
 
-    <input
-      type="number"
-      name="numSecu"
-      id="numSecu"
-      formControlName="numSecu"
-      placeholder="Numero de Secu"
-      [required]="true"
-    />
+    <div class="form-field" id="password-field">
+      <input
+        type="password"
+        name="password"
+        id="password"
+        minlength="5"
+        formControlName="password"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="password">Mot de passe</label>
+    </div>
 
   </div>
 

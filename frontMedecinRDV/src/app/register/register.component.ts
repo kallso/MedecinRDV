@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -6,6 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild('patient') patientEl;
+  @ViewChild('medecin') medecinEl;
 
   constructor() {
   }
@@ -16,20 +18,16 @@ export class RegisterComponent implements OnInit {
   permuteColor(event) {
     const bouton = event.target;
 
-    if (!bouton.classList.contains('cliked')) {
-      
-      
-  /* eviter noms en francais +  recuperer l'element grace au systeme d'angular pas le systeme normal en demandant l'injection de ElementRef dans le constructor*/
-
-      const bouton2 = document.getElementById(bouton.id === 'js-patient' ? 'js-medecin' : 'js-patient');
+    if (!bouton.classList.contains('clicked')) {
+      const bouton2 = bouton === this.patientEl.nativeElement ? this.medecinEl.nativeElement : this.patientEl.nativeElement;
 
       bouton.classList.toggle('white');
       bouton.classList.toggle('blue');
-      bouton.classList.add('cliked');
+      bouton.classList.add('clicked');
 
       bouton2.classList.toggle('white');
       bouton2.classList.toggle('blue');
-      bouton2.classList.remove('cliked');
+      bouton2.classList.remove('clicked');
     }
   }
 }

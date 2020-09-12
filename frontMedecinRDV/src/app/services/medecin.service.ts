@@ -12,11 +12,12 @@ export class MedecinService {
   private medecins: Medecin[] = [];
   medecinsChange = new Subject<Medecin[]>();
 
-  constructor(private http: HttpClient, private ressources: Ressources) {}
-  
+  constructor(private http: HttpClient) {
+  }
+
   /* eviter methodes en francais*/
 
-  private static gererErreur(erreur: HttpErrorResponse) {
+  private static manageErrors(erreur: HttpErrorResponse) {
     const errorMessage = 'An unknown error occured!';
 
     if (!erreur.error || !erreur.error.error) {
@@ -57,28 +58,39 @@ export class MedecinService {
         cours
       )
       .pipe(
-        catchError(this.gererErreur),
+        catchError(this.manageErrors),
         tap(coursSauve => {
           this.cours.push(coursSauve);
           this.coursChange.next(this.cours.slice());
         })
       );
   }*/
-  
-  
-  /* eviter methodes en francais*/
 
-
-  ajouterMedecin(medecin: Medecin) {
+  addMedecin(medecin: Medecin) {
     return this.http
       .post<Medecin>(
-        this.ressources.urlBackEnd + this.ressources.urlMedecins,
+        Ressources.urlBackEnd + Ressources.urlMedecins,
         medecin
       )
       .pipe(
-        catchError(MedecinService.gererErreur),
+        catchError(MedecinService.manageErrors),
         tap(medecinSauve => {
           this.medecins.push(medecinSauve);
+          this.medecinsChange.next(this.medecins.slice());
+        })
+      );
+  }
+
+  getMedecins(ville: string, nomOuSpe: string) {
+    return this.http
+      .get<Medecin[]>(
+        Ressources.urlBackEnd + Ressources.urlMedecins + '/' + Ressources.urlGetMedecinsByVilleNomOuSpe +
+        '/ville=' + ville + '&nomOuSpe=' + nomOuSpe
+      )
+      .pipe(
+        catchError(MedecinService.manageErrors),
+        tap(medecins => {
+          medecins.forEach(medecin => this.medecins.push(medecin));
           this.medecinsChange.next(this.medecins.slice());
         })
       );
@@ -93,7 +105,7 @@ export class MedecinService {
         coursModifie
       )
       .pipe(
-        catchError(this.gererErreur),
+        catchError(this.manageErrors),
         tap(cours => {
           this.cours[index] = cours;
           this.coursChange.next(this.cours.slice());

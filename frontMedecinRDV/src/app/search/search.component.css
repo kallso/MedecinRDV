@@ -1,9 +1,13 @@
-:host {
+.search, .result {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 90px 0;
+}
+
+.result {
+  padding-top: 29px;
 }
 
 .cta {
@@ -45,10 +49,48 @@ input, button {
   margin-bottom: 90px;
 }
 
-#MES {
+#empty-result {
+  color: var(--red);
+  font-size: 32px;
+  margin-top: 70px;
+}
+
+#nomOuSpe {
   padding: 25px 9vw;
 }
 
 #ville {
   padding: 25px 1vw;
+}
+
+h1 {
+  font-size: 64px;
+  color: var(--azure);
+  margin-top: 0;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 52.6%;
+  font-size: 30px;
+}
+
+td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+  height: 80px;
+}
+
+td#nom {
+
+}
+
+td#specialisation {
+  color: var(--azure);
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }

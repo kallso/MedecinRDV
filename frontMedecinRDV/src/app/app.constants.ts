@@ -1,17 +1,12 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
+import {environment} from '../environments/environment';
 
-/* Supprimer le Injectable car un service singleton ne sert a rien. Remplacer par des constantes statics final */
-
-/* après pour le p'tit plus, transformer l'appli en PWA  https://formationjavascript.com/pwa-avec-angular-en-10-etapes/*/
-@Injectable({
-  providedIn: 'root'
-})
+/* Après pour le p'tit plus, transformer l'appli en PWA  https://formationjavascript.com/pwa-avec-angular-en-10-etapes/*/
 export class Ressources {
-  public urlfrontEnd = environment.urlPortal;
-  public urlBackEnd = environment.urlBackEnd;
+  public static readonly urlfrontEnd = environment.urlPortal;
+  public static readonly urlBackEnd = environment.urlBackEnd;
 
-  public urlUsers = 'api/users';
-  public urlMedecins = 'api/medecins';
-  public urlPatients = 'api/patients';
+  public static readonly urlUsers = 'api/users';
+  public static readonly urlMedecins = 'api/medecins';
+  public static readonly urlGetMedecinsByVilleNomOuSpe = 'vns';
+  public static readonly urlPatients = 'api/patients';
 }

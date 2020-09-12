@@ -31,7 +31,7 @@ export class FormPatientComponent implements OnInit, OnDestroy {
     console.log('form envoyé!', this.formPatient.value);
 
     this.souscriptionPatientAjoute = this.userService
-      .ajouterMedecin(this.formPatient.value)
+      .addMedecin(this.formPatient.value)
       .subscribe(
         (userSauve) => {
           console.log('user sauvé', userSauve);
