@@ -553,6 +553,13 @@ button:active:after {
   color: var(--white);
 }
 
+.red {
+  border-radius: 6px;
+  background-color: var(--red);
+  padding: 15px;
+  color: var(--white);
+}
+
 .white, .blue {
   display: flex;
   min-width: 192px;

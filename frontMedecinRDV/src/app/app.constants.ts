@@ -9,6 +9,4 @@ export class Ressources {
   public static readonly urlMedecins = 'api/medecins';
   public static readonly urlGetMedecinsByVilleNomOuSpe = 'vns';
   public static readonly urlPatients = 'api/patients';
-
-  public static readonly urlUpdateMedecin = 'api/profilMedecin';
 }

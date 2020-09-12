@@ -7,12 +7,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {SearchModule} from './search/search.module';
 import {HeaderModule} from './header/header.module';
 import {FooterModule} from './footer/footer.module';
-import { ProfilMedecinComponent } from './profil-medecin/profil-medecin.component';
+import {ProfilModule} from './profil/profil.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProfilMedecinComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +20,8 @@ import { ProfilMedecinComponent } from './profil-medecin/profil-medecin.componen
     HeaderModule,
     FooterModule,
     SearchModule,
-    RegisterModule
+    RegisterModule,
+    ProfilModule
   ],
   providers: [],
   bootstrap: [AppComponent]

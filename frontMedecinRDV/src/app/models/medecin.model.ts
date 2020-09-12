@@ -2,6 +2,7 @@ import {User} from './user.model';
 
 export class Medecin extends User {
   constructor(
+    idUser: number,
     nom: string,
     prenom: string,
     mail: string,
@@ -13,6 +14,6 @@ export class Medecin extends User {
     public codePostal: number,
     public ville: string
   ) {
-    super(nom, prenom, mail, password, telephone);
+    super(idUser, nom, prenom, mail, password, telephone);
   }
 }

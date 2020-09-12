@@ -83,6 +83,10 @@ td {
   height: 80px;
 }
 
+td a {
+  color: var(--black);
+}
+
 td#nom {
 
 }
