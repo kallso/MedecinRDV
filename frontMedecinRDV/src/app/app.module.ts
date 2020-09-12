@@ -7,10 +7,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {SearchModule} from './search/search.module';
 import {HeaderModule} from './header/header.module';
 import {FooterModule} from './footer/footer.module';
+import { ProfilMedecinComponent } from './profil-medecin/profil-medecin.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfilMedecinComponent
   ],
   imports: [
     BrowserModule,

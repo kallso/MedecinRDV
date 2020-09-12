@@ -54,11 +54,19 @@ export class MedecinService {
       );
   }
 
-  /*updateMedecin(ville: string, nomOuSpe: string) {
+  updateMedecin(
+  nom:string, 
+  prenom: string,  
+  mail: string, 
+  telephone: number,  
+  adresse: string,
+  codePostal: number,
+  ville: string,
+  specialisation: string) {
     return this.http
       .put<Medecin>(
-        Ressources.urlBackEnd + Ressources.urlMedecins + '/' + Ressources.urlGetMedecinsByVilleNomOuSpe +
-        '/ville=' + ville + '&nomOuSpe=' + nomOuSpe
+        Ressources.urlBackEnd + Ressources.urlMedecins + '/' + Ressources.urlUpdateMedecin +
+        '/ville=' + ville + '&nom=' + nom + '&prenom=' + prenom + '&mail=' + mail + '&telephone=' + telephone + '&adresse=' + adresse + '&=codepostal' + codePostal + '&specialisation=' + specialisation       
       )
       .pipe(
         catchError(MedecinService.manageErrors),
@@ -69,7 +77,7 @@ export class MedecinService {
       );
   }
 
-  deleteMedecin(id: number) {
+  /*deleteMedecin(id: number) {
     return this.http
       .delete<Medecin[]>(
         Ressources.urlBackEnd + Ressources.urlMedecins + '/' + Ressources.urlGetMedecinsByVilleNomOuSpe +
