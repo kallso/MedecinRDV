@@ -2,6 +2,16 @@
 <form ngNativeValidate [formGroup]="formProfilMedecin" (ngSubmit)="onSubmit()">
   <div class="inputs">
 
+    <div class="form-field" id="idUser-field">
+      <input
+        type="hidden"
+        name="idUser"
+        id="idUser"
+        formControlName="idUser"
+        [required]="true"
+      />
+    </div>
+
     <div class="form-field" id="nom-field">
       <input
         type="text"
@@ -39,43 +49,43 @@
     </div>
 
     <div class="form-field" id="adresse-field">
-        <input
-          type="text"
-          name="adresse"
-          id="adresse"
-          formControlName="adresse"
-          placeholder=" "
-          [required]="true"
-        />
-        <label for="adresse">Adresse</label>
-      </div>
+      <input
+        type="text"
+        name="adresse"
+        id="adresse"
+        formControlName="adresse"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="adresse">Adresse</label>
+    </div>
 
-      <div class="form-field" id="codePostal-field">
-        <input
-          type="text"
-          name="codePostal"
-          id="codePostal"
-          pattern="^(?:[0-8]\d|9[0-8])\d{3}$"
-          (keypress)="allowOnlyNumbersOnKeyPress($event)"
-          (paste)="allowOnlyNumbersOnPaste($event)"
-          formControlName="codePostal"
-          placeholder=" "
-          [required]="true"
-        />
-        <label for="codePostal">Code Postal</label>
-      </div>
+    <div class="form-field" id="codePostal-field">
+      <input
+        type="text"
+        name="codePostal"
+        id="codePostal"
+        pattern="^(?:[0-8]\d|9[0-8])\d{3}$"
+        (keypress)="allowOnlyNumbersOnKeyPress($event)"
+        (paste)="allowOnlyNumbersOnPaste($event)"
+        formControlName="codePostal"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="codePostal">Code Postal</label>
+    </div>
 
-      <div class="form-field" id="ville-field">
-        <input
-          type="text"
-          name="ville"
-          id="ville"
-          formControlName="ville"
-          placeholder=" "
-          [required]="true"
-        />
-        <label for="ville">Ville</label>
-      </div>
+    <div class="form-field" id="ville-field">
+      <input
+        type="text"
+        name="ville"
+        id="ville"
+        formControlName="ville"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="ville">Ville</label>
+    </div>
 
     <div class="form-field" id="telephone-field">
       <input
@@ -91,21 +101,51 @@
     </div>
 
     <div class="form-field" id="mail-field">
-        <input
-          type="email"
-          name="mail"
-          id="mail"
-          formControlName="mail"
-          placeholder=" "
-          email
-          [required]="true"
-        />
-        <label for="mail">Mail</label>
-      </div>
+      <input
+        type="email"
+        name="mail"
+        id="mail"
+        formControlName="mail"
+        placeholder=" "
+        email
+        [required]="true"
+      />
+      <label for="mail">Mail</label>
+    </div>
+
+    <div class="form-field" id="tempsRDV-field">
+      <input
+        type="time"
+        value="00:30"
+        min="00:15"
+        max="03:00"
+        step="900"
+        name="tempsRDV"
+        id="tempsRDV"
+        #tempsRDV
+        formControlName="tempsRDV"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="tempsRDV">Temps RDV</label>
+    </div>
+
+    <div class="form-field" id="password-field">
+      <input
+        type="password"
+        name="password"
+        id="password"
+        minlength="5"
+        formControlName="password"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="password">Mot de passe</label>
+    </div>
 
   </div>
 
-  <button type="button" class="button white" (click)="undoPendingChanges()">Annuler</button>
+  <button type="button" class="button white" (click)="undoPendingChanges()">Réinitialiser</button>
   <button type="submit" class="button blue">Valider</button>
   <button type="button" class="button red" (click)="deleteMedecin()">Supprimer mon compte</button>
 </form>

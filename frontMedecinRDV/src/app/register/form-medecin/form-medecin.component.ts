@@ -41,6 +41,7 @@ export class FormMedecinComponent implements OnInit, OnDestroy {
       .subscribe(
         (medecinSauve) => {
           console.log('medecin sauvé', medecinSauve);
+          alert('Profil Créé !');
         },
         (error) => {
           // TODO : Gestion de l'erreur

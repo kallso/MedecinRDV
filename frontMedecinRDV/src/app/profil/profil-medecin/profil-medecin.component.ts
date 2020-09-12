@@ -20,6 +20,7 @@ export class ProfilMedecinComponent implements OnInit {
 
   ngOnInit(): void {
     this.formProfilMedecin = new FormGroup({
+      idUser: new FormControl(),
       nom: new FormControl(),
       prenom: new FormControl(),
       mail: new FormControl(),
@@ -27,13 +28,16 @@ export class ProfilMedecinComponent implements OnInit {
       adresse: new FormControl(),
       codePostal: new FormControl(),
       ville: new FormControl(),
-      specialisation: new FormControl()
+      specialisation: new FormControl(),
+      tempsRDV: new FormControl(),
+      password: new FormControl()
     });
 
     this.medecinService
       .getMedecin(this.route.snapshot.params.id)
       .subscribe(medecin => {
         this.medecin = medecin;
+        this.formProfilMedecin.get('idUser').setValue(this.medecin.idUser);
         this.formProfilMedecin.get('nom').setValue(this.medecin.nom.trim());
         this.formProfilMedecin.get('prenom').setValue(this.medecin.prenom.trim());
         this.formProfilMedecin.get('mail').setValue(this.medecin.mail.trim());
@@ -42,31 +46,26 @@ export class ProfilMedecinComponent implements OnInit {
         this.formProfilMedecin.get('codePostal').setValue(this.medecin.codePostal);
         this.formProfilMedecin.get('ville').setValue(this.medecin.ville.trim());
         this.formProfilMedecin.get('specialisation').setValue(this.medecin.specialisation.trim());
+        this.formProfilMedecin.get('tempsRDV').setValue(this.medecin.tempsRdv);
+        this.formProfilMedecin.get('password').setValue(this.medecin.password.trim());
       });
   }
 
   onSubmit() {
     console.log('form envoyé!', this.formProfilMedecin.value);
 
-    /*this.nom = this.formProfilMedecin.get('nom').value.trim();
-    this.prenom = this.formProfilMedecin.get('prenom').value.trim();
-    this.mail = this.formProfilMedecin.get('mail').value.trim();
-    this.telephone = this.formProfilMedecin.get('telephone').value.trim();
-    this.adresse = this.formProfilMedecin.get('adresse').value.trim();
-    this.codePostal = this.formProfilMedecin.get('codePostal').value.trim();
-    this.ville = this.formProfilMedecin.get('ville').value.trim();
-    this.specialisation = this.formProfilMedecin.get('specialisation').value.trim();*/
-
-    /*this.medecinUpdateProfil = this.medecinService
-      .updateMedecin()
+    this.medecinUpdateProfil = this.medecinService
+      .updateMedecin(this.formProfilMedecin.value)
       .subscribe(
-        (medecinSauve) => {
-          console.log('medecin sauvé', medecinSauve);
+        (medecinUpdated) => {
+          this.medecin = medecinUpdated;
+          console.log('medecin sauvé', medecinUpdated);
+          alert('Profil mis à jours !');
         },
         (error) => {
           // TODO : Gestion de l'erreur
         }
-      );*/
+      );
   }
 
   deleteMedecin() {
@@ -75,6 +74,7 @@ export class ProfilMedecinComponent implements OnInit {
       .subscribe(
         result => {
           if (result.status === 200 || result.ok) {
+            alert('Profil Supprimé !');
             this.router.navigate(['/']);
           }
         }

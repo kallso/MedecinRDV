@@ -63,7 +63,7 @@ export class MedecinService {
       );
   }
 
-  /*updateMedecin(medecin: Medecin) {
+  updateMedecin(medecin: Medecin) {
     return this.http
       .put<Medecin>(
         Ressources.urlBackEnd + Ressources.urlMedecins,
@@ -71,12 +71,15 @@ export class MedecinService {
       )
       .pipe(
         catchError(MedecinService.manageErrors),
-        tap(medecin => {
-          medecin => this.medecins. push(medecin);
+        tap(medecinUpdated => {
+          const medecinUpdatedIndex = this.medecins.findIndex(medecinStored => medecinUpdated.idUser === medecinStored.idUser);
+          if ( medecinUpdatedIndex !== -1) {
+            this.medecins[medecinUpdatedIndex] = medecinUpdated;
+          }
           this.medecinsChange.next(this.medecins.slice());
         })
       );
-  }*/
+  }
 
   deleteMedecin(id: number) {
     return this.http
