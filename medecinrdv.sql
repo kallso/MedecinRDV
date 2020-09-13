@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 11 sep. 2020 à 23:57
+-- Généré le :  Dim 13 sep. 2020 à 12:48
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `medecin` (
   `id_user` int(11) NOT NULL,
   `specialisation` varchar(255) NOT NULL,
   `adresse` varchar(255) NOT NULL,
-  `temps_rdv` int(11) NOT NULL,
+  `temps_rdv` varchar(10) NOT NULL,
   `code_postal` int(11) NOT NULL,
   `ville` varchar(255) NOT NULL,
   PRIMARY KEY (`id_user`),
@@ -63,10 +63,12 @@ CREATE TABLE IF NOT EXISTS `medecin` (
 --
 
 INSERT INTO `medecin` (`id_user`, `specialisation`, `adresse`, `temps_rdv`, `code_postal`, `ville`) VALUES
-(27, 'cardio', '2 rue des chiens aux aboies', 30, 31400, 'Toulouse'),
-(28, 'pediatre', '5 rue des mamies débousolées', 45, 31100, 'Toulouse'),
-(29, 'cardio', '15 rue des pillules fraiches', 15, 31300, 'Nantes'),
-(30, 'cardio', '26 rue des bonbonnes enflammées', 60, 31600, 'Toulouse');
+(29, 'cardio', '15 rue des pillules fraiches', '00:15', 31300, 'Nantes'),
+(30, 'cardio', '26 rue des bonbonnes enflammées', '02:00', 31600, 'Toulouse'),
+(39, 'cardio', '2 rue des chiens aux aboies', '01:45', 31400, 'Toulouse'),
+(42, 'pediatre', '5 rue des mamies débousolées', '00:45', 31140, 'Toulouse'),
+(43, 'cardio', '6 rue des cocktails de quartier', '00:45', 31456, 'Toulouse'),
+(44, 'pediatre', '9 rue des borgnes immaculés', '02:45', 31800, 'Toulouse');
 
 -- --------------------------------------------------------
 
@@ -122,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `telephone` varchar(255) NOT NULL,
   PRIMARY KEY (`id_user`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
@@ -133,10 +135,12 @@ INSERT INTO `user` (`id_user`, `nom`, `prenom`, `mail`, `password`, `telephone`)
 (2, 'Garcia', 'Simon', 'fantome@gmail.com', 'jesuispalaaaaa', '+33541235822'),
 (3, 'Balatia', 'Yaya', 'yayaToure@but.com', 'CLEBUUUUUUT', '+33544658499'),
 (8, 'Ulster', 'Francis', 'franfran@casonade.slah', '123456789', '+3366666666'),
-(27, 'Costner', 'Kevin', 'aieaie@bobo.fr', '123456', '01456687862'),
-(28, 'Corias', 'Pierre', 'aiiiicafaitmal@bobo.fr', '123456', '01456687862'),
 (29, 'Mas', 'Charles', 'piquouze@bobo.fr', '123456', '01456684598'),
-(30, 'Durand', 'Marc', 'dudu@mama.fr', 'motDePa$$', '0145668458');
+(30, 'Durand', 'Marc', 'dudu@mama.fr', 'motDePa$$', '0145668458'),
+(39, 'Costner', 'Kevin', 'aieaie@bobo.fr', '123456', '01456687862'),
+(42, 'Corias', 'Pierre', 'aiiiicafaitmal@bobo.fr', '123456', '01456687862'),
+(43, 'Astier', 'Kevin', 'voodoo@grammar.com', 'astalavistamiamorbabe', '0645781923'),
+(44, 'Zalzali', 'Ahmad', 'zalza@salsa.sli', 'lafrite', '+33457895622');
 
 --
 -- Contraintes pour les tables déchargées
