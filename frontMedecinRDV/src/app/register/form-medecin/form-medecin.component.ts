@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {MedecinService} from '../../services/medecin.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-form-medecin',
@@ -13,7 +14,7 @@ export class FormMedecinComponent implements OnInit, OnDestroy {
   medecinAddedSubscription: Subscription;
   @ViewChild('tempsRdv', {static: true}) tempsRdvEl;
 
-  constructor(private medecinService: MedecinService) {
+  constructor(private medecinService: MedecinService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -42,6 +43,7 @@ export class FormMedecinComponent implements OnInit, OnDestroy {
         (medecinSauve) => {
           console.log('medecin sauvé', medecinSauve);
           alert('Profil Créé !');
+          this.router.navigate(['/login']);
         },
         (error) => {
           // TODO : Gestion de l'erreur

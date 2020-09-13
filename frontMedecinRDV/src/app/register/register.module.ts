@@ -5,6 +5,7 @@ import {FormMedecinComponent} from './form-medecin/form-medecin.component';
 import {FormPatientComponent} from './form-patient/form-patient.component';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     RegisterRoutingModule,
+    RouterModule
   ],
   exports: [
     RegisterComponent,

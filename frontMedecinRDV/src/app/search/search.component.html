@@ -33,8 +33,14 @@
 
   <table>
     <tr *ngFor="let resultatMedecin of resultatMedecins">
-      <td id="nom"><a routerLink="profil/medecin/{{ resultatMedecin.idUser }}">{{ resultatMedecin.nom }}</a></td>
-      <td id="specialisation">{{ resultatMedecin.specialisation }}</td>
+      <td id="docteur">
+        <a routerLink="profil/medecin/{{ resultatMedecin.idUser }}" id="nom-prenom">Dr {{ resultatMedecin.prenom}} {{ resultatMedecin.nom }}</a>
+        <p id="spe">{{ resultatMedecin.specialisation}}</p>
+        <p id="adresse">{{ resultatMedecin.adresse }}</p>
+        <p id="codePostal-ville">{{ resultatMedecin.codePostal }} {{ resultatMedecin.ville }}</p>
+        <a routerLink="profil/medecin/{{ resultatMedecin.idUser }}" class="button blue" id="rdv">Prendre rendez-vous</a>
+      </td>
+      <td id="creneaux">Créneaux</td>
     </tr>
   </table>
 </div>

@@ -88,19 +88,43 @@ td {
 }
 
 td a {
-  color: var(--black);
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-td#nom {
-
+td#docteur > * {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-td#specialisation {
+#nom-prenom {
+  color: var(--black);
+  font-size: 26px;
+  font-weight: 400;
+}
+
+p {
+  margin: auto;
+}
+
+#spe {
+  color: var(--azure);
+}
+
+#adresse,
+#codePostal-ville {
+  font-size: 21px;
+  font-weight: 300;
+}
+
+#rdv {
+  width: 50%;
+  height: unset;
+  margin: auto;
+}
+
+td#creneaux {
   color: var(--azure);
 }
 
