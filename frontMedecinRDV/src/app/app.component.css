@@ -4,6 +4,7 @@
 }
 
 #content-wrap {
+  height: calc(100vh - (var(--footer-height) + 1px));
   padding-bottom: var(--footer-height);    /* Footer height */
   margin: var(--header-height) 0 0;
 }

@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {MedecinService} from '../../services/medecin.service';
 

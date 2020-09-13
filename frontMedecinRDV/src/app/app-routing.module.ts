@@ -1,6 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SearchComponent} from './search/search.component';
+import {LoginComponent} from './login/login.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -20,23 +22,19 @@ const routes: Routes = [
     path: 'profil',
     loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule)
   },
-
-  /*{
+  {
     path: 'login',
     component: LoginComponent
   },
   {
-    path: 'presentation',
-    loadChildren: () => import('./test/test.module').then(m => m.TestModule)
-  },
-  {
     path: '**',
     component: NotFoundComponent
-  }*/
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

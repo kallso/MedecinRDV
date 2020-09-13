@@ -8,6 +8,8 @@ import {SearchModule} from './search/search.module';
 import {HeaderModule} from './header/header.module';
 import {FooterModule} from './footer/footer.module';
 import {ProfilModule} from './profil/profil.module';
+import {LoginModule} from './login/login.module';
+import {NotFoundModule} from './not-found/not-found.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {ProfilModule} from './profil/profil.module';
     FooterModule,
     SearchModule,
     RegisterModule,
-    ProfilModule
+    ProfilModule,
+    LoginModule,
+    NotFoundModule
   ],
   providers: [],
   bootstrap: [AppComponent]

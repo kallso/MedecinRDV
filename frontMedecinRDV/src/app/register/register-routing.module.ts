@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { FormMedecinComponent } from './form-medecin/form-medecin.component';
-import { RegisterComponent } from './register.component';
-import { FormPatientComponent } from './form-patient/form-patient.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {FormMedecinComponent} from './form-medecin/form-medecin.component';
+import {RegisterComponent} from './register.component';
+import {FormPatientComponent} from './form-patient/form-patient.component';
 
 const routes: Routes = [
   {
