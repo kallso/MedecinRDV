@@ -4,8 +4,6 @@ import fr.ipst.back_medecin_rdv.entities.MedecinEntity;
 import fr.ipst.back_medecin_rdv.repository.IMedecinRepository;
 import fr.ipst.back_medecin_rdv.services.interfaces.IMedecinService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

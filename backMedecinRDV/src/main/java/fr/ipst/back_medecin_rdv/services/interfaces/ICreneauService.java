@@ -1,7 +1,6 @@
 package fr.ipst.back_medecin_rdv.services.interfaces;
 
 import fr.ipst.back_medecin_rdv.entities.CreneauEntity;
-import fr.ipst.back_medecin_rdv.entities.UserEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

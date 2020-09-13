@@ -9,7 +9,7 @@ import java.util.Objects;
 public class MedecinEntity extends UserEntity {
     private String specialisation;
     private String adresse;
-    private int tempsRdv;
+    private String tempsRdv;
     private int codePostal;
     private String ville;
 
@@ -35,11 +35,11 @@ public class MedecinEntity extends UserEntity {
 
     @Basic
     @Column(name = "temps_rdv", nullable = false)
-    public int getTempsRdv() {
+    public String getTempsRdv() {
         return tempsRdv;
     }
 
-    public void setTempsRdv(int tempsRdv) {
+    public void setTempsRdv(String tempsRdv) {
         this.tempsRdv = tempsRdv;
     }
 
@@ -68,7 +68,7 @@ public class MedecinEntity extends UserEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MedecinEntity that = (MedecinEntity) o;
-        return  tempsRdv == that.tempsRdv &&
+        return  Objects.equals(tempsRdv, that.tempsRdv) &&
                 codePostal == that.codePostal &&
                 Objects.equals(specialisation, that.specialisation) &&
                 Objects.equals(adresse, that.adresse) &&

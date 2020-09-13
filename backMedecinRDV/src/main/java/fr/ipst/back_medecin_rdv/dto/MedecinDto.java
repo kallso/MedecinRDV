@@ -5,7 +5,7 @@ import java.util.Objects;
 public class MedecinDto extends UserDto {
     private String specialisation;
     private String adresse;
-    private int tempsRdv;
+    private String tempsRdv;
     private int codePostal;
     private String ville;
 
@@ -25,11 +25,11 @@ public class MedecinDto extends UserDto {
         this.adresse = adresse;
     }
 
-    public int getTempsRdv() {
+    public String getTempsRdv() {
         return tempsRdv;
     }
 
-    public void setTempsRdv(int tempsRdv) {
+    public void setTempsRdv(String tempsRdv) {
         this.tempsRdv = tempsRdv;
     }
 
@@ -54,7 +54,7 @@ public class MedecinDto extends UserDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MedecinDto that = (MedecinDto) o;
-        return  tempsRdv == that.tempsRdv &&
+        return  Objects.equals(tempsRdv, that.tempsRdv) &&
                 codePostal == that.codePostal &&
                 Objects.equals(specialisation, that.specialisation) &&
                 Objects.equals(adresse, that.adresse) &&
