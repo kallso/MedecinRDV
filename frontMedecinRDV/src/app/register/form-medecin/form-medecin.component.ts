@@ -11,7 +11,7 @@ import {MedecinService} from '../../services/medecin.service';
 export class FormMedecinComponent implements OnInit, OnDestroy {
   formMedecin: FormGroup;
   medecinAddedSubscription: Subscription;
-  @ViewChild('tempsRDV', {static: true}) tempsRdvEl;
+  @ViewChild('tempsRdv', {static: true}) tempsRdvEl;
 
   constructor(private medecinService: MedecinService) {
   }
@@ -26,11 +26,11 @@ export class FormMedecinComponent implements OnInit, OnDestroy {
       codePostal: new FormControl(),
       ville: new FormControl(),
       specialisation: new FormControl(),
-      tempsRDV: new FormControl('00:30'),
+      tempsRdv: new FormControl('00:30'),
       password: new FormControl(),
     });
 
-    this.formMedecin.get('tempsRDV').setValidators(control => !this.tempsRdvEl.nativeElement.reportValidity() ? {tempsRdvEl: true} : null);
+    this.formMedecin.get('tempsRdv').setValidators(control => !this.tempsRdvEl.nativeElement.reportValidity() ? {tempsRdvEl: true} : null);
   }
 
   onSubmit() {

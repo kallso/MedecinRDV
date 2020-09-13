@@ -10,7 +10,7 @@ export class Medecin extends User {
     telephone: string,
     public specialisation: string,
     public adresse: string,
-    public tempsRdv: number,
+    public tempsRdv: string,
     public codePostal: number,
     public ville: string
   ) {

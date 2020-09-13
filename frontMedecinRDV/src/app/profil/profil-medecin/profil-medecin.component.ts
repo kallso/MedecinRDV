@@ -29,7 +29,7 @@ export class ProfilMedecinComponent implements OnInit {
       codePostal: new FormControl(),
       ville: new FormControl(),
       specialisation: new FormControl(),
-      tempsRDV: new FormControl(),
+      tempsRdv: new FormControl(),
       password: new FormControl()
     });
 
@@ -46,7 +46,7 @@ export class ProfilMedecinComponent implements OnInit {
         this.formProfilMedecin.get('codePostal').setValue(this.medecin.codePostal);
         this.formProfilMedecin.get('ville').setValue(this.medecin.ville.trim());
         this.formProfilMedecin.get('specialisation').setValue(this.medecin.specialisation.trim());
-        this.formProfilMedecin.get('tempsRDV').setValue(this.medecin.tempsRdv);
+        this.formProfilMedecin.get('tempsRdv').setValue(this.medecin.tempsRdv);
         this.formProfilMedecin.get('password').setValue(this.medecin.password.trim());
       });
   }
