@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {MedecinService} from '../../services/medecin.service';
+import {MedecinService} from '../../../services/medecin.service';
 import {Subscription} from 'rxjs';
-import {Medecin} from '../../models/medecin.model';
+import {Medecin} from '../../../models/medecin.model';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({

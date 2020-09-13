@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {SearchModule} from './search/search.module';
 import {HeaderModule} from './header/header.module';
 import {FooterModule} from './footer/footer.module';
-import {ProfilModule} from './profil/profil.module';
+import {AccountModule} from './account/account.module';
 import {LoginModule} from './login/login.module';
 import {NotFoundModule} from './not-found/not-found.module';
 
@@ -23,7 +23,7 @@ import {NotFoundModule} from './not-found/not-found.module';
     FooterModule,
     SearchModule,
     RegisterModule,
-    ProfilModule,
+    AccountModule,
     LoginModule,
     NotFoundModule
   ],

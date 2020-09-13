@@ -6,7 +6,7 @@ import {NotFoundComponent} from './not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: 'accueil',
+    path: 'home',
     redirectTo: '#',
     pathMatch: 'full'
   },
@@ -19,8 +19,8 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)
   },
   {
-    path: 'profil',
-    loadChildren: () => import('./profil/profil.module').then(m => m.ProfilModule)
+    path: 'account',
+    loadChildren: () => import('./account/account.module').then(m => m.AccountModule)
   },
   {
     path: 'login',
