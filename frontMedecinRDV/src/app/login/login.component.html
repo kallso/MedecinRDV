@@ -1,1 +1,33 @@
-<p>login works!</p>
+<h1>Connexion</h1>
+<form ngNativeValidate [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+  <div class="inputs">
+
+    <div class="form-field" id="nomOuMail-field">
+      <input
+        type="text"
+        name="nomOuMail"
+        id="nomOuMail"
+        formControlName="nomOuMail"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="nomOuMail">Nom ou E-mail</label>
+    </div>
+
+    <div class="form-field" id="password-field">
+      <input
+        type="password"
+        name="password"
+        id="password"
+        formControlName="password"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="password">Mot de passe</label>
+    </div>
+
+  </div>
+
+  <button type="submit" class="button blue">Se Connecter</button>
+</form>
+

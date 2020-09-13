@@ -1,3 +1,7 @@
+:host {
+  width: 100%;
+}
+
 .search, .result {
   display: flex;
   flex-direction: column;
@@ -101,5 +105,5 @@ td#specialisation {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: var(--grey);
 }
