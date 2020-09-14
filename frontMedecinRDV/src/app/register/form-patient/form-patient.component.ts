@@ -12,9 +12,8 @@ export class FormPatientComponent implements OnInit, OnDestroy {
   formPatient: FormGroup;
   souscriptionPatientAjoute: Subscription;
 
-  constructor(
-    private userService: MedecinService
-  ) {}
+  constructor(private userService: MedecinService) {
+  }
 
   ngOnInit(): void {
     this.formPatient = new FormGroup({
@@ -28,13 +27,11 @@ export class FormPatientComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    console.log('form envoyé!', this.formPatient.value);
-
     this.souscriptionPatientAjoute = this.userService
       .addMedecin(this.formPatient.value)
       .subscribe(
         (userSauve) => {
-          console.log('user sauvé', userSauve);
+
         },
         (error) => {
           // TODO : Gestion de l'erreur

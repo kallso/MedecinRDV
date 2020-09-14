@@ -33,6 +33,9 @@ export class ProfilMedecinComponent implements OnInit {
       password: new FormControl()
     });
 
+    console.log(this.route.snapshot);
+    console.log(this.router);
+
     this.medecinService
       .getMedecin(this.route.snapshot.params.id)
       .subscribe(medecin => {
@@ -52,37 +55,40 @@ export class ProfilMedecinComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('form envoyé!', this.formProfilMedecin.value);
-
-    this.medecinUpdateProfil = this.medecinService
-      .updateMedecin(this.formProfilMedecin.value)
-      .subscribe(
-        (medecinUpdated) => {
-          this.medecin = medecinUpdated;
-          console.log('medecin sauvé', medecinUpdated);
-          alert('Profil mis à jours !');
-        },
-        (error) => {
-          // TODO : Gestion de l'erreur
-        }
-      );
+    if (confirm('Etes-vous sûr de vouloir enregistrer vos changements ?')) {
+      this.medecinUpdateProfil = this.medecinService
+        .updateMedecin(this.formProfilMedecin.value)
+        .subscribe(
+          (medecinUpdated) => {
+            this.medecin = medecinUpdated;
+            alert('Profil mis à jours !');
+          },
+          (error) => {
+            // TODO : Gestion de l'erreur
+          }
+        );
+    }
   }
 
   deleteMedecin() {
-    this.medecinService
-      .deleteMedecin(this.route.snapshot.params.id)
-      .subscribe(
-        result => {
-          if (result.status === 200 || result.ok) {
-            alert('Profil Supprimé !');
-            this.router.navigate(['/']);
+    if (confirm('Etes-vous sûr de vouloir supprimer votre compte ?')) {
+      this.medecinService
+        .deleteMedecin(this.route.snapshot.params.id)
+        .subscribe(
+          result => {
+            if (result.status === 200 || result.ok) {
+              alert('Profil Supprimé !');
+              this.router.navigate(['/']);
+            }
           }
-        }
-      );
+        );
+    }
   }
 
   undoPendingChanges() {
-    this.formProfilMedecin.reset(this.medecin);
+    if (confirm('Etes-vous sûr de vouloir annuler vos changements ?')) {
+      this.formProfilMedecin.reset(this.medecin);
+    }
   }
 
   allowOnlyNumbersOnKeyPress(event: KeyboardEvent) {

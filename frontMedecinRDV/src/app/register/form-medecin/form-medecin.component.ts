@@ -35,13 +35,10 @@ export class FormMedecinComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    console.log('form envoyé!', this.formMedecin.value);
-
     this.medecinAddedSubscription = this.medecinService
       .addMedecin(this.formMedecin.value)
       .subscribe(
         (medecinSauve) => {
-          console.log('medecin sauvé', medecinSauve);
           alert('Profil Créé !');
           this.router.navigate(['/login']);
         },

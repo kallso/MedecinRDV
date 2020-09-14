@@ -20,6 +20,7 @@ export class MedecinService {
     const errorMessage = 'An unknown error occured!';
 
     if (!erreur.error || !erreur.error.error) {
+      // TODO gérer les erreurs
     }
 
     return throwError(errorMessage);
@@ -73,7 +74,7 @@ export class MedecinService {
         catchError(MedecinService.manageErrors),
         tap(medecinUpdated => {
           const medecinUpdatedIndex = this.medecins.findIndex(medecinStored => medecinUpdated.idUser === medecinStored.idUser);
-          if ( medecinUpdatedIndex !== -1) {
+          if (medecinUpdatedIndex !== -1) {
             this.medecins[medecinUpdatedIndex] = medecinUpdated;
           }
           this.medecinsChange.next(this.medecins.slice());
@@ -95,84 +96,4 @@ export class MedecinService {
         })
       );
   }
-
-  /*setCours(cours: Cours[]) {
-    this.cours = cours;
-    this.coursChange.next(this.cours.slice());
-  }
-
-  getCours() {
-    return this.cours.slice();
-  }
-
-  getUnCours(index: number) {
-    return this.cours[index];
-  }
-
-  getDetailCours(id: number) {
-    return this.http.get<Cours>(this.ressources.urlBackEnd + this.ressources.urlCours + '/' + id).pipe(
-      tap(result => {
-        this.unCours = result;
-        return result;
-      })
-    );
-  }
-
-  getCoursConsulte() {
-    return this.unCours;
-  }
-
-  ajouterCours(cours: Cours) {
-    return this.http
-      .post<Cours>(
-        this.ressources.urlBackEnd + this.ressources.urlCours,
-        cours
-      )
-      .pipe(
-        catchError(this.manageErrors),
-        tap(coursSauve => {
-          this.cours.push(coursSauve);
-          this.coursChange.next(this.cours.slice());
-        })
-      );
-  }*/
-
-  /*modifierCours(index: number, coursModifie: Cours) {
-    return this.http
-      .put<Cours>(
-        this.ressources.urlBackEnd +
-        this.ressources.urlCours +
-        '/' + coursModifie.id,
-        coursModifie
-      )
-      .pipe(
-        catchError(this.manageErrors),
-        tap(cours => {
-          this.cours[index] = cours;
-          this.coursChange.next(this.cours.slice());
-        })
-      );
-  }
-
-  supprimerCours(index: number) {
-    const coursASupprimer = this.getUnCours(index);
-    this.http
-      .delete(this.ressources.urlBackEnd + this.ressources.urlCours + '/' + coursASupprimer.id)
-      .subscribe(
-        res => {
-          this.cours.splice(index, 1);
-          this.coursChange.next(this.cours.slice());
-        },
-        error => {}
-      );
-  }
-
-  getCoursAssocies() {
-    return this.listeCoursAssocies.slice();
-  }
-
-  setCoursAssocies(cours: Cours[]) {
-    this.listeCoursAssocies = cours;
-  }*/
-
 }

@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +9,7 @@ export class RegisterComponent implements OnInit {
   @ViewChild('patient') patientEl;
   @ViewChild('medecin') medecinEl;
 
-  constructor(private hostElement: ElementRef) {
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -17,8 +17,6 @@ export class RegisterComponent implements OnInit {
 
   permuteColor(event) {
     const bouton = event.target;
-
-    console.log(this.hostElement.nativeElement);
 
     if (!bouton.classList.contains('clicked')) {
       const bouton2 = bouton === this.patientEl.nativeElement ? this.medecinEl.nativeElement : this.patientEl.nativeElement;

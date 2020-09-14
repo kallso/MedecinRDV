@@ -12,19 +12,19 @@ const routes: Routes = [
     component: AccountComponent,
     children: [
       {
-        path: 'profil/medecin/:id',
+        path: 'medecin/:id/profil',
         component: ProfilMedecinComponent
       },
       {
-        path: 'profil/patient/:id',
-        component: ProfilPatientComponent
-      },
-      {
-        path: 'rendez-vous/medecin/:id',
+        path: 'medecin/:id/rendez-vous',
         component: RendezVousMedecinComponent
       },
       {
-        path: 'rendez-vous/patient/:id',
+        path: 'patient/:id/profil',
+        component: ProfilPatientComponent
+      },
+      {
+        path: 'patient/:id/rendez-vous',
         component: RendezVousPatientComponent
       }
     ]

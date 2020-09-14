@@ -30,3 +30,8 @@ div {
 p {
   font-weight: bold;
 }
+
+a {
+  font-size: 17px;
+  letter-spacing: -0.26px;
+}

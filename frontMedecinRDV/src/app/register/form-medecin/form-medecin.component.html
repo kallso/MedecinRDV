@@ -2,18 +2,6 @@
 <form ngNativeValidate [formGroup]="formMedecin" (ngSubmit)="onSubmit()">
   <div class="inputs">
 
-    <div class="form-field" id="nom-field">
-      <input
-        type="text"
-        name="nom"
-        id="nom"
-        formControlName="nom"
-        placeholder=" "
-        [required]="true"
-      />
-      <label for="nom">Nom</label>
-    </div>
-
     <div class="form-field" id="prenom-field">
       <input
         type="text"
@@ -24,6 +12,18 @@
         [required]="true"
       />
       <label for="prenom">Prénom</label>
+    </div>
+
+    <div class="form-field" id="nom-field">
+      <input
+        type="text"
+        name="nom"
+        id="nom"
+        formControlName="nom"
+        placeholder=" "
+        [required]="true"
+      />
+      <label for="nom">Nom</label>
     </div>
 
     <div class="form-field" id="mail-field">

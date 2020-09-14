@@ -27,7 +27,6 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    console.log('Recherche envoyée !', this.formulaire.value);
     this.nomOuSpe = this.formulaire.get('nomOuSpe').value.trim();
     this.ville = this.formulaire.get('ville').value.trim();
 
@@ -35,7 +34,6 @@ export class SearchComponent implements OnInit, OnDestroy {
       .getMedecins(this.ville, this.nomOuSpe)
       .subscribe(
         (medecins) => {
-          console.log('liste résulats médecins : ', medecins);
           this.resultatMedecins = medecins;
         },
         (error) => {

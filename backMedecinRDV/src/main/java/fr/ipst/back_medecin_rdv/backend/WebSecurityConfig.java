@@ -13,18 +13,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             /*.authorizeRequests()
-            .antMatchers("/", "/home", "/api/greetings").permitAll()
-            //.antMatchers("/api/greetings","").permitAll()//can't do this
+            .antMatchers("/", "/home", "/api/greetings")
+                .permitAll()
             .anyRequest().authenticated()
             .and()
-            .formLogin()
-            .loginPage("/login")
-            .permitAll()
+                .cors().disable().cors()
             .and()
-            .logout()
-            .permitAll();*/
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+            .and()
+                .logout()
+                .permitAll();*/
 
-             /* DISABLED ALL SECURITY  */
+            /* DISABLED ALL SECURITY  */
             .csrf().disable();
     }
 }

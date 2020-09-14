@@ -4,6 +4,7 @@ import {AccountComponent} from './account.component';
 import {AccountRoutingModule} from './account-routing.module';
 import {ProfilsModule} from './profils/profils.module';
 import {RendezVousModule} from './rendez-vous/rendez-vous.module';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {RendezVousModule} from './rendez-vous/rendez-vous.module';
     CommonModule,
     AccountRoutingModule,
     ProfilsModule,
-    RendezVousModule
+    RendezVousModule,
+    RouterModule
   ],
   exports: [
     AccountComponent
